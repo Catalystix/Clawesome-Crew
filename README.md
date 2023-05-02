@@ -1,4 +1,4 @@
-# Clawesome-Crew
+# The Daily Clawsmic (Legally required to have cats part of this project)
 
 
 ## User Story
