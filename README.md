@@ -3,7 +3,8 @@
 
 ## User Story
 
-AS A space enthusiast 
+AS A space enthusiast
+
 I WANT to be able to search, find, and save information on celestial bodies and events
 
 ## Wireframe 
