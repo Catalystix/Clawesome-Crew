@@ -33,14 +33,20 @@
 
   ## Questions
   Have questions? Contact me at:
+  
   Email: akbarrett1993@gmail.com
 
   ## Credits
   Alex Barrett
+  
   Erin Sawyer
+  
   Bronson Wardle
+  
   Drew Greenblatt
+  
   Hope Mansfield
+  
   Camila Moreiras
 
   ## License
