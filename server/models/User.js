@@ -19,10 +19,16 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  thoughts: [
+  articles: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Thought',
+      ref: 'Article',
+    },
+  ],
+  images: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Image',
     },
   ],
 });
