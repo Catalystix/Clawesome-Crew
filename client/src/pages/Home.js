@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 
 import ArticleList from '../components/ArticleList';
 import ArticleForm from '../components/ArticleForm';
-
+import Api from '../utils/api';
 import { QUERY_ARTICLES } from '../utils/queries';
 
 const Home = () => {
@@ -29,6 +29,12 @@ const Home = () => {
             />
           )}
         </div>
+        <div className="toggleButton" >
+        <button onClick={() => {Api()}}>
+        search
+        </button>
+       
+      </div>
       </div>
     </main>
   );

@@ -1,8 +1,10 @@
+import React from 'react';
+
 let searchButton = document.querySelector("#search")
 
-searchButton.addEventListener("click", () =>{
-    sendMarsApiRequest()
-})
+// searchButton.addEventListener("click", () =>{
+//     sendMarsApiRequest()
+// })
 
 
 
@@ -18,7 +20,7 @@ async function sendMarsApiRequest () {
     console.log(data)
 }
 
-export sendMarsApiRequest modules.ez
+export default  sendMarsApiRequest
 
 //1. tech transfer
 // https://api.nasa.gov/techtransfer/patent/?engine&api_key=${apiKey}
