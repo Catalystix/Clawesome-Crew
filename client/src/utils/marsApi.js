@@ -36,12 +36,4 @@ async function sendMarsApiRequest () {
 
 export default  sendMarsApiRequest
 
-
-//3. picture of day
-//picture
-//explination
-//copywrite
-//title
-//https://api.nasa.gov/planetary/apod?api_key=${apiKey}
-
 //maybe - EPIC
