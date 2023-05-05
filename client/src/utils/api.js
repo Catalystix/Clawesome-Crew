@@ -18,6 +18,20 @@ async function sendMarsApiRequest () {
     let response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${apiKey}`)
     let data = await response.json()
     console.log(data)
+        const photos = data.photos;
+        const randomIndex = Math.floor(Math.random() * photos.length);
+        const randomPhoto = photos[randomIndex];
+        
+        const roverName = randomPhoto.rover.name;
+        const roverStatus = randomPhoto.rover.status;
+        const earthDate = randomPhoto.earth_date;
+        const photoUrl = randomPhoto.img_src;
+        
+
+        console.log(`Rover name: ${roverName}`);
+        console.log(`Rover status: ${roverStatus}`);
+        console.log(`Earth date: ${earthDate}`);
+        console.log(`Photo URL: ${photoUrl}`);
 }
 
 export default  sendMarsApiRequest
