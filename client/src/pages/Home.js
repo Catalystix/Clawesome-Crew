@@ -3,7 +3,8 @@ import { useQuery } from '@apollo/client';
 
 import ArticleList from '../components/ArticleList';
 import ArticleForm from '../components/ArticleForm';
-import Api from '../utils/api';
+import MarsApi from '../utils/marsApi';
+import TechApi from '../utils/techApi';
 import { QUERY_ARTICLES } from '../utils/queries';
 
 const Home = () => {
@@ -30,8 +31,14 @@ const Home = () => {
           )}
         </div>
         <div className="toggleButton" >
-        <button onClick={() => {Api()}}>
-        search
+        <button onClick={() => {MarsApi()}}>
+        Mars Search
+        </button>
+       
+      </div>
+      <div className="toggleButton" >
+        <button onClick={() => {TechApi()}}>
+        Tech Search
         </button>
        
       </div>
