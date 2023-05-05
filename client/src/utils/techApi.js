@@ -18,19 +18,20 @@ async function sendTechApiRequest () {
     let response = await fetch(`https://api.nasa.gov/techtransfer/patent/?engine&api_key=${apiKey}`)
     let data = await response.json()
     console.log(data)
+      
+        const results = data.results;
+        const randomIndex = Math.floor(Math.random() * results.length);
+        const randomResult = results[randomIndex];
+        
+        const articleID = randomResult[1];
+        const articleTitle = randomResult[2];
+        const articleImg = randomResult[10];
+      
 
-}
+        console.log(`article ID: ${articleID}`);
+        console.log(`article Title: ${articleTitle}`);
+        console.log(`article Img: ${articleImg}`);
+
+      }
 
 export default  sendTechApiRequest
-
-
-
-
-//3. picture of day
-//picture
-//explination
-//copywrite
-//title
-//https://api.nasa.gov/planetary/apod?api_key=${apiKey}
-
-//maybe - EPIC
