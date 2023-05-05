@@ -36,13 +36,6 @@ async function sendMarsApiRequest () {
 
 export default  sendMarsApiRequest
 
-//1. tech transfer
-// https://api.nasa.gov/techtransfer/patent/?engine&api_key=${apiKey}
-//2 link
-// 11 picture
-//get patent/article ID
-
-
 
 //3. picture of day
 //picture

@@ -5,6 +5,7 @@ import ArticleList from '../components/ArticleList';
 import ArticleForm from '../components/ArticleForm';
 import MarsApi from '../utils/marsApi';
 import TechApi from '../utils/techApi';
+import PODApi from '../utils/podApi'
 import { QUERY_ARTICLES } from '../utils/queries';
 
 const Home = () => {
@@ -34,14 +35,17 @@ const Home = () => {
         <button onClick={() => {MarsApi()}}>
         Mars Search
         </button>
-       
       </div>
       <div className="toggleButton" >
         <button onClick={() => {TechApi()}}>
         Tech Search
         </button>
-       
-      </div>
+       </div>
+       <div className="toggleButton" >
+        <button onClick={() => {PODApi()}}>
+        POD Search
+        </button>
+       </div>
       </div>
     </main>
   );
