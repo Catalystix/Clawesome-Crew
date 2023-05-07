@@ -1,12 +1,11 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
 
-let searchButton = document.querySelector("#search")
+let searchButton = document.querySelector("#search");
 
 // searchButton.addEventListener("click", () =>{
 //     sendMarsApiRequest()
 // })
-
 
 //1. tech transfer
 // https://api.nasa.gov/techtransfer/patent/?engine&api_key=${apiKey}
@@ -15,28 +14,54 @@ let searchButton = document.querySelector("#search")
 //get patent/article ID
 
 async function sendTechApiRequest() {
-  const apiKey = "huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben";
+  // hope's api key
+  const apiKey = "MxhQtdOQo4057bQmauxgjMkK7jcdbyB7ceB3CHyK";
   try {
-    const response = await axios.get(`https://api.nasa.gov/techtransfer/patent/?engine&api_key=${apiKey}`);
+    const response = await axios.get(
+      `https://api.nasa.gov/techtransfer/patent/?engine&api_key=${apiKey}`
+    );
+
+    // pulls all data
     const data = response.data;
 
     const results = data.results;
+
+    // logs all data
+    console.log(results);
+
+    // pics random article
     const randomIndex = Math.floor(Math.random() * results.length);
     const randomResult = results[randomIndex];
-    console.log(randomResult, "randomresult")
 
-    const articleID = randomResult[1];
+    // logs the random article
+    console.log(randomResult);
+
+    // logs the data we want to use
+    const articleID = `https://technology.nasa.gov/patent/${randomResult[1]}`;
     const articleTitle = randomResult[2];
     const articleImg = randomResult[10];
+    const articleDescription = randomResult[3];
 
+    // steal article id
     console.log(`article ID: ${articleID}`);
+    localStorage.setItem("article_ID", articleID);
+
+    // steal article title (it displays weird)
     console.log(`article Title: ${articleTitle}`);
+    localStorage.setItem("article_title", articleTitle);
+
+    //steal article image
     console.log(`article Img: ${articleImg}`);
-    return data;
+    localStorage.setItem("article_img", articleImg);
+
+    // steal article description (it displays better but is long)
+    console.log(`article Description: ${articleDescription}`);
+    localStorage.setItem("article_description", articleDescription);
+
+    // catch errors
   } catch (error) {
     console.error(error);
   }
 }
 
-
-export default  sendTechApiRequest
+export default sendTechApiRequest;
