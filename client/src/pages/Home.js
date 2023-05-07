@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 
 import ArticleList from '../components/ArticleList';
 import ArticleForm from '../components/ArticleForm';
@@ -7,14 +7,32 @@ import MarsApi from '../utils/marsApi';
 import TechApi from '../utils/techApi';
 import PODApi from '../utils/podApi'
 import { QUERY_ARTICLES } from '../utils/queries';
+import { ADD_IMAGE, ADD_ARTICLE } from '../utils/mutations';
+
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_ARTICLES);
-  const articles = data?.articles || [];
+  // const articles = data?.articles || [];
+  const [addImage, {error}] = useMutation(ADD_IMAGE);
+  const [addArticle, {err}] = useMutation(ADD_ARTICLE);
   const [mars, setMars] = useState([]);
-  console.log(mars, "mars")
-  function savePhoto(photo){
-    console.log("photo", photo)}
+  const [pod, setPod] = useState([]);
+  const [articles, setArticles] = useState([])
+  console.log(mars, "mars");
+  console.log(articles, "articles");
+
+  async function saveArticles(article){
+    console.log("article", article)
+    const {data}=await addArticle({
+      variables:article
+    })
+  };
+ async function savePhoto(photo){
+    console.log("photo", photo)
+    const {data}=await addImage({
+      variables:photo
+    })
+  };
   return (
     <main>
       <div className="flex-row justify-center">
@@ -47,16 +65,51 @@ const Home = () => {
         </button>
       </div>
       <div className="toggleButton" >
-        <button onClick={() => {TechApi()}}>
+        <button onClick={async() => {
+          const data = await TechApi()
+          console.log('data', data);
+          setArticles(data.articles);
+          }}>
         Tech Search
         </button>
        </div>
        <div className="toggleButton" >
-        <button onClick={() => {PODApi()}}>
+        <button onClick={async() => {
+          const data = await PODApi()
+          console.log('podAPI', data);
+          setPod(data.photo)
+          
+          }}>
         POD Search
         </button>
        </div>
       </div>
+
+          {pod.map(pod => (
+            <div>
+              <img src={pod.photo}>
+
+              </img>
+              <button data-img={pod.photo} data-name={pod.title} onClick={(e)=> savePhoto({url:e.target.dataset.img, name:e.target.dataset.name})}>
+            Save Photo
+           </button>
+            </div>
+          ))}
+
+
+      {/* {articles.map(article =>(
+        <div>
+          <img src={article.img}>
+          </img>
+
+        </div>
+      ))} */}
+      {/* Going to hold off on this- need to maybe change API- not giving enough or what I want it to do.  */}
+
+
+
+
+
       {mars.map(mars => (
         // modify css for this
           <div> 
