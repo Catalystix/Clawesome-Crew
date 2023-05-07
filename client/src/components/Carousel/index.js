@@ -77,7 +77,7 @@ export default function Projects() {
                 </div>
               ))}
             </div>
-            <a href={Projects[currentIndex].Link} target="_blank" className="opacity-0 text-sm inline break-all text-gray-950">LinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinks
+            <a href={Projects[currentIndex].Link} target="_blank" className="opacity-0  text-sm inline break-all text-gray-950">LinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinks
             linkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinks
             linksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinksLinkslinkslinksLinkslinkslinkslinksLinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinks
             linksLinkslinkslinksLinkslinkslinksLinkslinkslinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinkslinkslinksLinks

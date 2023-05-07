@@ -12,6 +12,24 @@ export const LOGIN_USER = gql`
   }
 `;
 
+export const ADD_IMAGE = gql`
+mutation addImage($url: String!, $name: String!) {
+  addImage(url: $url, name: $name) {
+    _id
+    name
+    url
+  }
+}`
+
+export const REMOVE_IMAGE = gql`
+mutation removeImage($imageId: ID!) {
+  removeImage(imageId: $imageId) {
+    _id
+    name
+    url
+  }
+}`
+
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
