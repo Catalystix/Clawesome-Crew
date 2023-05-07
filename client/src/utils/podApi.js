@@ -30,10 +30,12 @@ async function sendPODApiRequest() {
       console.log(`explanation: ${explanation}`);
       console.log(`photo: ${photo}`);
       console.log(`title: ${title}`);
+      return data;
     } catch (error) {
       console.error(error);
     }
   }
+ 
 
 export default  sendPODApiRequest
 

@@ -17,7 +17,7 @@ let searchButton = document.querySelector("#search")
 async function sendMarsApiRequest() {
     const apiKey = "huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben";
     try {
-      const response = await axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${apiKey}`);
+      const response = await axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=10&api_key=${apiKey}`);
       const data = response.data;
   
       const photos = data.photos;
@@ -33,6 +33,7 @@ async function sendMarsApiRequest() {
       console.log(`Rover status: ${roverStatus}`);
       console.log(`Earth date: ${earthDate}`);
       console.log(`Photo URL: ${photoUrl}`);
+      return data;
     } catch (error) {
       console.error(error);
     }

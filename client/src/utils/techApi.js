@@ -23,6 +23,7 @@ async function sendTechApiRequest() {
     const results = data.results;
     const randomIndex = Math.floor(Math.random() * results.length);
     const randomResult = results[randomIndex];
+    console.log(randomResult, "randomresult")
 
     const articleID = randomResult[1];
     const articleTitle = randomResult[2];
@@ -31,9 +32,11 @@ async function sendTechApiRequest() {
     console.log(`article ID: ${articleID}`);
     console.log(`article Title: ${articleTitle}`);
     console.log(`article Img: ${articleImg}`);
+    return data;
   } catch (error) {
     console.error(error);
   }
 }
+
 
 export default  sendTechApiRequest
