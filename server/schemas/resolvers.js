@@ -64,6 +64,38 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    addImage: async (parent, args, context) => {
+      if (context.user) {
+        const image = await Image.create({
+          ...args,
+          user_id: context.user._id
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { images: image._id } }
+        );
+
+        return image;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    removeImage: async (parent, { imageId }, context) => {
+      if (context.user) {
+        const image = await Image.findOneAndDelete({
+          _id: imageId,
+          user_id: context.user._id,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { images: image._id } }
+        );
+
+        return image;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
     addComment: async (parent, { articleId, commentText }, context) => {
       if (context.user) {
         return Article.findOneAndUpdate(
@@ -81,6 +113,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    
     removeArticle: async (parent, { articleId }, context) => {
       if (context.user) {
         const article = await Article.findOneAndDelete({
