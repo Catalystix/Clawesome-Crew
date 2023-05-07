@@ -7,9 +7,9 @@ const ArticleList = ({
   showTitle = true,
   showUsername = true,
 }) => {
-  if (!articles.length) {
-    return <h3>No Articles Yet</h3>;
-  }
+  // if (!articles.length) {
+  //   return <h3>No Articles Yet</h3>;
+  // }
 
   return (
     <div>

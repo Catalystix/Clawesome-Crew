@@ -23,7 +23,7 @@ async function sendPODApiRequest() {
   
       const date = data.date;
       const explanation = data.explanation;
-      const photo = data.url;
+      const photo = data.hdurl;
       const title = data.title;
   
       console.log(`date: ${date}`);
