@@ -8,7 +8,7 @@ import TechApi from "../utils/techApi";
 import PODApi from "../utils/podApi";
 import { QUERY_ARTICLES } from "../utils/queries";
 import { ADD_IMAGE, ADD_ARTICLE } from "../utils/mutations";
-import MarsDisplay from "../components/marsPhotoDisplay";
+import MarsDisplay from "./marsPhotoDisplay";
 import TechArticle from "./techArticle";
 import APODsection from "./APODsection";
 
