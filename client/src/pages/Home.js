@@ -50,7 +50,9 @@ const Home = () => {
             <ArticleList
               articles={articles}
               title="Some Feed for Article(s)..."
-            />
+              href="https://technology.nasa.gov/patent/"{...articles}></ArticleList>
+           
+            
           )}
         </div>
 
@@ -87,7 +89,7 @@ const Home = () => {
       </div>
 
       {pod && pod.map(pod => (
-        <div>
+        <div >
           <img src={PODApi.url} alt={pod.title} />
           <button data-img={pod.url} data-name={pod.title} onClick={(e) => savePhoto({ url: e.target.dataset.img, name: e.target.dataset.name })}>
             Save Photo
@@ -114,7 +116,7 @@ const Home = () => {
 
       {mars.map(mars => (
         // modify css for this
-        <div>
+        <div className='flex w-100 '>
           <img src={mars.img_src}>
 
           </img>
