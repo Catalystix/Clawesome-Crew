@@ -1,5 +1,6 @@
 import React from "react";
 import sendPODApiRequest from "../utils/podApi";
+import { Segment, Grid, Image } from 'semantic-ui-react';
 
 const styles = {
   img: {

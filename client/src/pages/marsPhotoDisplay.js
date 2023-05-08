@@ -1,5 +1,6 @@
 import React from "react";
 import sendMarsApiRequest from "../utils/marsApi";
+import { Segment, Grid, Image } from 'semantic-ui-react';
 
 const styles = {
   img: {

@@ -9,8 +9,8 @@ import PODApi from "../utils/podApi";
 import { QUERY_ARTICLES } from "../utils/queries";
 import { ADD_IMAGE, ADD_ARTICLE } from "../utils/mutations";
 import MarsDisplay from "../components/marsPhotoDisplay";
-import TechArticle from "../components/techArticle";
-import APODsection from "../components/APODsection";
+import TechArticle from "./techArticle";
+import APODsection from "./APODsection";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_ARTICLES);

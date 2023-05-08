@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Segment, Grid, Image } from 'semantic-ui-react';
 
 const Footer = () => {
   const location = useLocation();
