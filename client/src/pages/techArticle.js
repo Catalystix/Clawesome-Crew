@@ -1,6 +1,6 @@
 import React from "react";
-
 import sendTechApiRequest from "../utils/techApi";
+import { Segment, Grid, Image } from 'semantic-ui-react';
 
 const styles = {
   img: {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
+import { Segment, Grid, Image } from 'semantic-ui-react';
 
 import { ADD_ARTICLE } from '../../utils/mutations';
 import { QUERY_ARTICLES, QUERY_ME } from '../../utils/queries';
