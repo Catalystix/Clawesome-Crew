@@ -1,8 +1,8 @@
 import axios from "axios";
+import apiKey from "../index";
 
 export async function apodCall() {
   // hope's api key
-  const apiKey = "MxhQtdOQo4057bQmauxgjMkK7jcdbyB7ceB3CHyK";
   try {
     const response = await axios.get(
       `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
@@ -22,7 +22,6 @@ export async function apodCall() {
 
 export async function marsCall() {
   // hope's api key
-  const apiKey = "MxhQtdOQo4057bQmauxgjMkK7jcdbyB7ceB3CHyK";
   try {
     const response = await axios.get(
       `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${apiKey}`
@@ -57,7 +56,6 @@ export async function marsCall() {
 
 export async function techCall() {
   // hope's api key
-  const apiKey = "MxhQtdOQo4057bQmauxgjMkK7jcdbyB7ceB3CHyK";
   try {
     const response = await axios.get(
       `https://api.nasa.gov/techtransfer/patent/?engine&api_key=${apiKey}`

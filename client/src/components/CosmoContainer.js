@@ -6,7 +6,7 @@ import ApodDisplay from "../pages/APODSingle";
 import MarsDisplay from "../pages/MarsSingle";
 import TechDisplay from "../pages/TechSingle";
 
-import CSS from "./style.css";
+// import CSS from './style.css';
 
 export default function CosmosContainer() {
   const [currentPage, setCurrentPage] = useState("APOD");
