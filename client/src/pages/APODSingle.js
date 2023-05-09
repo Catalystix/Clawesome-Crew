@@ -1,5 +1,6 @@
 import React from "react";
-import sendPODApiRequest from "../utils/podApi";
+import { apodCall } from "../utils/homepageAPI";
+import { Segment, Grid, Image } from "semantic-ui-react";
 
 const styles = {
   img: {
@@ -8,8 +9,8 @@ const styles = {
   },
 };
 
-const APODsection = () => {
-  sendPODApiRequest();
+const ApodDisplay = () => {
+  apodCall();
   const photo = localStorage.getItem("photo_today");
   const explanation = localStorage.getItem("photo_explanation");
 
@@ -22,4 +23,4 @@ const APODsection = () => {
   );
 };
 
-export default APODsection;
+export default ApodDisplay;

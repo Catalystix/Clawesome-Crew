@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useRef, useEffect } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
+import { Segment, Grid, Image } from 'semantic-ui-react';
 
 export default function Projects() {
     const Projects = [

@@ -1,6 +1,6 @@
 import React from "react";
-
-import sendTechApiRequest from "../utils/techApi";
+import { techCall } from "../utils/homepageAPI";
+import { Segment, Grid, Image } from "semantic-ui-react";
 
 const styles = {
   img: {
@@ -15,8 +15,8 @@ const styles = {
   },
 };
 
-const TechArticle = () => {
-  sendTechApiRequest();
+const TechDisplay = () => {
+  techCall();
   const article_ID = localStorage.getItem("article_ID");
   const article_img = localStorage.getItem("article_img");
   const article_description = localStorage.getItem("article_description");
@@ -31,4 +31,4 @@ const TechArticle = () => {
   );
 };
 
-export default TechArticle;
+export default TechDisplay;
