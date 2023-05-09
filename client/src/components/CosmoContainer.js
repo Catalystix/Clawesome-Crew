@@ -12,6 +12,7 @@ import SingleArticle from "./pages/SingleArticle";
 import Profile from "./pages/Profile";
 import Favorites from "./pages/Favorites";
 import Landing from "./pages/Landing";
+import ArticleList from "./ArticleList";
 
 import {
   ApolloClient,
@@ -25,24 +26,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import CSS from './style.css';
 
 export default function CosmosContainer() {
-  const [currentPage, setCurrentPage] = useState("APOD");
-
-  // This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
-  const renderPage = () => {
-    if (currentPage === "APOD") {
-      return <ApodDisplay />;
-    }
-    if (currentPage === "MarsDisplay") {
-      return <MarsDisplay />;
-    }
-    if (currentPage === "TechArticle") {
-      return <TechDisplay />;
-    }
-    if (currentPage === "Favorites") {
-      return <Favorites />;
-    }
-  };
-
   // Construct request middleware that will attach the JWT token to every request as an `authorization` header
   const authLink = setContext((_, { headers }) => {
     // get the authentication token from local storage if it exists
@@ -66,7 +49,7 @@ export default function CosmosContainer() {
     cache: new InMemoryCache(),
   });
 
-  const handlePageChange = (page) => setCurrentPage(page);
+  //const handlePageChange = (page) => setCurrentPage(page);
 
   return (
     <div>
@@ -75,13 +58,9 @@ export default function CosmosContainer() {
           <div className="flex-column justify-flex-start min-100-vh">
             <Header />
             <div className="container">
-              <NavTabs
-                currentPage={currentPage}
-                handlePageChange={handlePageChange}
-              />
-              {renderPage()}
-            </div>
-            <div className="container">
+              <div className="container">
+                <NavTabs />
+              </div>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
@@ -89,6 +68,10 @@ export default function CosmosContainer() {
                 <Route path="/me" element={<Profile />} />
                 <Route path="/profiles/:username" element={<Profile />} />
                 <Route path="/landing" element={<Landing />} />
+                <Route path="/APOD" element={<ApodDisplay />} />
+                <Route path="/mars" element={<MarsDisplay />} />
+                <Route path="/tech" element={<TechDisplay />} />
+                <Route path="/favorites" element={<Favorites />} />
                 <Route
                   path="/articles/:articleId"
                   element={<SingleArticle />}
