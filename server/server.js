@@ -8,7 +8,10 @@ const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-require("dotenv").config();
+// const cors = require("cors");
+// const axios = require("axios");
+// require("dotenv").config();
+//app.use(cors());
 
 const server = new ApolloServer({
   typeDefs,

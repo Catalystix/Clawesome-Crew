@@ -1,8 +1,8 @@
 import axios from "axios";
-import apiKey from "../index";
+//import apiKey from "../index";
+const apiKey = "huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben";
 
 export async function apodCall() {
-  // hope's api key
   try {
     const response = await axios.get(
       `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
