@@ -15,11 +15,13 @@ const ApodDisplay = () => {
   const explanation = localStorage.getItem("photo_explanation");
 
   return (
-    <div>
-      <h2>Astronomy Picture of the Day</h2>
-      <img style={styles.img} src={photo} alt="space"></img>
-      <p>{explanation}</p>
-    </div>
+    <Segment>
+      <div>
+        <h2>Astronomy Picture of the Day</h2>
+        <img style={styles.img} src={photo} alt="space"></img>
+        <p>{explanation}</p>
+      </div>
+    </Segment>
   );
 };
 

@@ -16,12 +16,14 @@ const MarsDisplay = () => {
   const rover_status = localStorage.getItem("status");
 
   return (
-    <div>
-      <h2>Mars Rover Picture of the Day</h2>
-      <img style={styles.img} src={marsPhoto} alt="mars"></img>
-      <p>Rover: {rover_name}</p>
-      <p>Status: {rover_status}</p>
-    </div>
+    <Segment>  
+      <div>
+        <h2>Mars Rover Picture of the Day</h2>
+        <img style={styles.img} src={marsPhoto} alt="mars"></img>
+        <p>Rover: {rover_name}</p>
+        <p>Status: {rover_status}</p>
+      </div>
+    </Segment>
   );
 };
 export default MarsDisplay;

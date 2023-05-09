@@ -21,13 +21,15 @@ const TechDisplay = () => {
   const article_img = localStorage.getItem("article_img");
   const article_description = localStorage.getItem("article_description");
   return (
-    <div style={styles.overflow}>
-      <h2>Tech Article of the Day</h2>
-      <a href={article_ID} target="_blank" rel="noreferrer">
-        <img style={styles.img} src={article_img} alt="tech stuff"></img>
-        {article_description}
-      </a>
-    </div>
+    <Segment>
+      <div style={styles.overflow}>
+        <h2>Tech Article of the Day</h2>
+        <a href={article_ID} target="_blank" rel="noreferrer">
+          <img style={styles.img} src={article_img} alt="tech stuff"></img>
+          {article_description}
+        </a>
+      </div>
+    </Segment>
   );
 };
 

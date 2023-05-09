@@ -10,6 +10,8 @@ import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 import SingleArticle from "../pages/SingleArticle";
 import Profile from "../pages/Profile";
+import Favorites from "../pages/Favorites";
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -35,10 +37,10 @@ export default function CosmosContainer() {
     if (currentPage === "TechArticle") {
       return <TechDisplay />;
     }
-    //! commenting out for now until we add this
-    // if (currentPage === 'Favorite') {
-    //     return <Favorite />;
-    // }
+
+    if (currentPage === 'Favorites') {
+        return <Favorites />;
+    }
   };
 
   // Construct request middleware that will attach the JWT token to every request as an `authorization` header
