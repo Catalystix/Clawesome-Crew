@@ -23,7 +23,7 @@ async function sendPODApiRequest() {
     const data = response.data;
 
     //log all the data
-    // console.log(response.data);
+    console.log(response.data);
 
     const date = data.date;
     const explanation = data.explanation;
@@ -45,6 +45,7 @@ async function sendPODApiRequest() {
     // console.log(`title: ${title}`);
 
     // log the errors
+    return data;
   } catch (error) {
     console.error(error);
   }

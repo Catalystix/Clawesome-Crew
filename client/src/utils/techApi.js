@@ -59,6 +59,7 @@ async function sendTechApiRequest() {
     localStorage.setItem("article_description", articleDescription);
 
     // catch errors
+    return data;
   } catch (error) {
     console.error(error);
   }
