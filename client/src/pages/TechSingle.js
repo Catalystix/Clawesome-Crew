@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from '@apollo/client';
 import { techCall } from "../utils/homepageAPI";
 import { QUERY_ARTICLES } from "../utils/queries";
@@ -21,6 +21,15 @@ const styles = {
 const TechDisplay = () => {
   const [addArticle, { err }] = useMutation(ADD_ARTICLE);
   const [articles, setArticles] = useState([]);
+  useEffect(async () => {
+    const data = await techCall();
+    console.log("techapi", data)
+    // const results = data.results.map(result => {
+    //   return {img: result[10], id: result[0], description: result[3]}
+    // })
+    // console.log(results);
+    setArticles(data.results);
+  }, [])
 
   async function saveArticles(article) {
     console.log("article", article);
@@ -28,33 +37,43 @@ const TechDisplay = () => {
       variables: article,
     });
   }
+  console.log(articles);
 
-  techCall();
-  const article_ID = localStorage.getItem("article_ID");
-  const article_img = localStorage.getItem("article_img");
-  const article_description = localStorage.getItem("article_description");
+  // const article_ID = localStorage.getItem("article_ID");
+  // const article_img = localStorage.getItem("article_img");
+  // const article_description = localStorage.getItem("article_description");
   return (
     <Segment>
       <div style={styles.overflow}>
         <h2>Tech Article of the Day</h2>
-        <a href={article_ID} target="_blank" rel="noreferrer">
+        {/* <a href={article_ID} target="_blank" rel="noreferrer">
           <img style={styles.img} src={article_img} alt="tech stuff"></img>
           {article_description}
-        </a>
+        </a> */}
         <div className="toggleButton">
-        <button
-          onClick={async () => {
-            const data = await techCall();
-            console.log("data", data);
-            setArticles(data.articles);
-          }}
-        >
-          Tech Search
-        </button>
+          <button
+            onClick={async () => {
+              const data = await techCall();
+              console.log("data", data);
+              setArticles(data.results);
+            }}
+          >
+            Tech Search
+          </button>
+          <div>
+            {articles.map((article) => (
+              <a href={article[0]} target="_blank" rel="noreferrer">
+              <div key={article[0]}>
+                <img style={styles.img} src={article[10]} alt="tech stuff"></img>
+                {article[3]}
+              </div>
+              </a>
+            ))}
+
+          </div>
+        </div>
       </div>
-    </div>
     </Segment>
-    
   );
 };
 

@@ -31,7 +31,7 @@ export default function CosmosContainer() {
     if (currentPage === "APOD") {
       return <ApodDisplay />;
     }
-    if (currentPage === "Mars") {
+    if (currentPage === "MarsDisplay") {
       return <MarsDisplay />;
     }
     if (currentPage === "TechArticle") {

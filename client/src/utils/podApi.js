@@ -18,12 +18,12 @@ let searchButton = document.querySelector("#search");
 async function sendPODApiRequest() {
   try {
     const response = await axios.get(
-      `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}`
+      `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
     );
     const data = response.data;
 
     //log all the data
-    // console.log(response.data);
+    console.log(response.data);
 
     const date = data.date;
     const explanation = data.explanation;

@@ -18,7 +18,7 @@ let searchButton = document.querySelector("#search");
 async function sendTechApiRequest() {
   try {
     const response = await axios.get(
-      `https://api.nasa.gov/techtransfer/patent/?engine&api_key=${process.env.REACT_APP_API_KEY}`
+      `https://api.nasa.gov/techtransfer/patent/?engine&api_key=${apiKey}`
     );
 
     // pulls all data

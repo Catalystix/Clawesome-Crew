@@ -5,7 +5,7 @@ const apiKey = "huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben";
 export async function apodCall() {
   try {
     const response = await axios.get(
-      `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}`
+      `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
     );
     const data = response.data;
 
@@ -25,7 +25,7 @@ export async function marsCall() {
   // hope's api key
   try {
     const response = await axios.get(
-      `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${process.env.REACT_APP_API_KEY}`
+      `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1&api_key=${apiKey}`
     );
 
     // pull all data
@@ -60,7 +60,7 @@ export async function techCall() {
   // hope's api key
   try {
     const response = await axios.get(
-      `https://api.nasa.gov/techtransfer/patent/?engine&api_key=${process.env.REACT_APP_API_KEY}`
+      `https://api.nasa.gov/techtransfer/patent/?engine&api_key=${apiKey}`
     );
 
     // pulls all data

@@ -7,18 +7,18 @@ export default function NavTabs({ currentPage, handlePageChange }) {
       <Menu pointing secondary size="large">
         <Menu.Item
           name="Pic of the Day"
-          active={currentPage === "APODsection"}
-          onClick={() => handlePageChange("APODsection")}
+          active={currentPage === "APOD"}
+          onClick={() => handlePageChange("APOD")}
           style={{
-            color: currentPage === "APODsection" ? "#d1d7e0" : "#564f6f",
+            color: currentPage === "APOD" ? "#d1d7e0" : "#564f6f",
             borderBottom:
-              currentPage === "APODsection" ? "2px solid #d1d7e0" : "",
+              currentPage === "APOD" ? "2px solid #d1d7e0" : "",
           }}
         />
         <Menu.Item
           name="Mars Photos"
           active={currentPage === "MarsDisplay"}
-          onClick={() => handlePageChange("ProjecMarsDisplayts")}
+          onClick={() => handlePageChange("MarsDisplay")}
           style={{
             color: currentPage === "MarsDisplay" ? "#d1d7e0" : "#564f6f",
             borderBottom:

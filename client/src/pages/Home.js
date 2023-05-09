@@ -15,28 +15,28 @@ import TechDisplay from "./TechSingle";
 import MarsDisplay from "./MarsSingle";
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_ARTICLES);
-  // const articles = data?.articles || [];
-  const [addImage, { error }] = useMutation(ADD_IMAGE);
-  const [addArticle, { err }] = useMutation(ADD_ARTICLE);
-  const [mars, setMars] = useState([]);
-  const [pod, setPod] = useState([]);
-  const [articles, setArticles] = useState([]);
-  console.log(mars, "mars");
-  console.log(articles, "articles");
+  // const { loading, data } = useQuery(QUERY_ARTICLES);
+  // // const articles = data?.articles || [];
+  // const [addImage, { error }] = useMutation(ADD_IMAGE);
+  // const [addArticle, { err }] = useMutation(ADD_ARTICLE);
+  // const [mars, setMars] = useState([]);
+  // const [pod, setPod] = useState([]);
+  // const [articles, setArticles] = useState([]);
+  // console.log(mars, "mars");
+  // console.log(articles, "articles");
 
-  async function saveArticles(article) {
-    console.log("article", article);
-    const { data } = await addArticle({
-      variables: article,
-    });
-  }
-  async function savePhoto(photo) {
-    console.log("photo", photo);
-    const { data } = await addImage({
-      variables: photo,
-    });
-  }
+  // async function saveArticles(article) {
+  //   console.log("article", article);
+  //   const { data } = await addArticle({
+  //     variables: article,
+  //   });
+  // }
+  // async function savePhoto(photo) {
+  //   console.log("photo", photo);
+  //   const { data } = await addImage({
+  //     variables: photo,
+  //   });
+  // }
   return (
     <main>
       {/* <div className="flex-row justify-center">
@@ -68,7 +68,7 @@ const Home = () => {
           Mars Search
         </button>
       </div> */}
-      <div className="toggleButton">
+      {/* <div className="toggleButton">
         <button
           onClick={async () => {
             const data = await TechApi();
@@ -92,7 +92,7 @@ const Home = () => {
       </div>
       {/* </div> */}
 
-      {pod.map((pod) => (
+      {/* {pod.map((pod) => (
         <div>
           <img src={pod.photo}></img>
           <button
@@ -108,7 +108,7 @@ const Home = () => {
             Save Photo
           </button>
         </div>
-      ))}
+      ))} */} 
 
       {/* {articles.map(article =>(
         <div>
@@ -138,11 +138,11 @@ const Home = () => {
           </button>
         </div>
       ))} */}
-      <div>
+      {/* <div>
         <ApodDisplay />
         <TechDisplay />
         <MarsDisplay />
-      </div>
+      </div> */}
     </main>
   );
 };
