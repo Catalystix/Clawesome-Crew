@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import NavTabs from './NavTabs';
-import Header from './Header/index';
-import Footer from './Footer/index';
+import React, { useState } from "react";
+import NavTabs from "./NavTabs";
+import Header from "./Header/index";
+import Footer from "./Footer/index";
 import APOD from "../pages/APODsection";
 import Mars from "../pages/marsPhotoDisplay";
 import TechArticle from "../pages/techArticle";

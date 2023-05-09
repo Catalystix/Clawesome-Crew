@@ -27,14 +27,14 @@ async function sendTechApiRequest() {
     const results = data.results;
 
     // logs all data
-    console.log(results);
+    // console.log(results);
 
     // pics random article
     const randomIndex = Math.floor(Math.random() * results.length);
     const randomResult = results[randomIndex];
 
     // logs the random article
-    console.log(randomResult);
+    // console.log(randomResult);
 
     // logs the data we want to use
     const articleID = `https://technology.nasa.gov/patent/${randomResult[1]}`;
@@ -43,19 +43,19 @@ async function sendTechApiRequest() {
     const articleDescription = randomResult[3];
 
     // steal article id
-    console.log(`article ID: ${articleID}`);
+    // console.log(`article ID: ${articleID}`);
     localStorage.setItem("article_ID", articleID);
 
     // steal article title (it displays weird)
-    console.log(`article Title: ${articleTitle}`);
+    // console.log(`article Title: ${articleTitle}`);
     localStorage.setItem("article_title", articleTitle);
 
     //steal article image
-    console.log(`article Img: ${articleImg}`);
+    // console.log(`article Img: ${articleImg}`);
     localStorage.setItem("article_img", articleImg);
 
     // steal article description (it displays better but is long)
-    console.log(`article Description: ${articleDescription}`);
+    // console.log(`article Description: ${articleDescription}`);
     localStorage.setItem("article_description", articleDescription);
 
     // catch errors
