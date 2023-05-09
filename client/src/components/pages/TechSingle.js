@@ -97,8 +97,4 @@ const TechDisplay = () => {
 
 export default TechDisplay;
 
-// <button onClick={(e) => saveArticles({
-//   url: e.target.dataset.article[0],
-//   img: e.target.dataset.article[10],
-//   description: e.target.dataset.article[3],
-// })}>Save</button>
+
