@@ -1,44 +1,60 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
 
-let searchButton = document.querySelector("#search")
+let searchButton = document.querySelector("#search");
 
 // searchButton.addEventListener("click", () =>{
 //     sendMarsApiRequest()
 // })
-
-
 
 //2. mars rover
 //rover.name
 //rover.status
 //img src
 //earth date
-async function sendMarsApiRequest() {
-    const apiKey = "huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben";
-    try {
-      const response = await axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=10&api_key=${apiKey}`);
-      const data = response.data;
-  
-      const photos = data.photos;
-      const randomIndex = Math.floor(Math.random() * photos.length);
-      const randomPhoto = photos[randomIndex];
-  
-      const roverName = randomPhoto.rover.name;
-      const roverStatus = randomPhoto.rover.status;
-      const earthDate = randomPhoto.earth_date;
-      const photoUrl = randomPhoto.img_src;
-  
-      console.log(`Rover name: ${roverName}`);
-      console.log(`Rover status: ${roverStatus}`);
-      console.log(`Earth date: ${earthDate}`);
-      console.log(`Photo URL: ${photoUrl}`);
-      return data;
-    } catch (error) {
-      console.error(error);
-    }
-  }
 
-export default  sendMarsApiRequest
+async function sendMarsApiRequest() {
+  // hope's api key
+  const apiKey = "MxhQtdOQo4057bQmauxgjMkK7jcdbyB7ceB3CHyK";
+  try {
+    const response = await axios.get(
+      `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1&api_key=${apiKey}`
+    );
+
+    // pull all data
+    const data = response.data;
+
+    const photos = data.photos;
+    const randomIndex = Math.floor(Math.random() * photos.length);
+    const randomPhoto = photos[randomIndex];
+
+    const roverName = randomPhoto.rover.name;
+    const roverStatus = randomPhoto.rover.status;
+    const earthDate = randomPhoto.earth_date;
+    const photoUrl = randomPhoto.img_src;
+
+    // steal rover name
+    console.log(`Rover name: ${roverName}`);
+    localStorage.setItem("rover_name", roverName);
+
+    // steal rover status
+    console.log(`Rover status: ${roverStatus}`);
+    localStorage.setItem("status", roverStatus);
+
+    // earth date
+    console.log(`Earth date: ${earthDate}`);
+
+    // steal photo URL
+    console.log(`Photo URL: ${photoUrl}`);
+    localStorage.setItem("mars photo", photoUrl);
+
+    // catch errors
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export default sendMarsApiRequest;
 
 //maybe - EPIC

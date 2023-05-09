@@ -1,13 +1,11 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
 
-let searchButton = document.querySelector("#search")
+let searchButton = document.querySelector("#search");
 
 // searchButton.addEventListener("click", () =>{
 //     sendMarsApiRequest()
 // })
-
-
 
 //3. picture of day
 //picture
@@ -16,29 +14,41 @@ let searchButton = document.querySelector("#search")
 //title
 
 async function sendPODApiRequest() {
-    const apiKey = "huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben";
-    try {
-      const response = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`);
-      const data = response.data;
-  
-      const date = data.date;
-      const explanation = data.explanation;
-      const photo = data.hdurl;
-      const title = data.title;
-  
-      console.log(`date: ${date}`);
-      console.log(`explanation: ${explanation}`);
-      console.log(`photo: ${photo}`);
-      console.log(`title: ${title}`);
-      return data;
-    } catch (error) {
-      console.error(error);
-    }
+  // hope's api key
+  const apiKey = "MxhQtdOQo4057bQmauxgjMkK7jcdbyB7ceB3CHyK";
+  try {
+    const response = await axios.get(
+      `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
+    );
+    const data = response.data;
+
+    //log all the data
+    console.log(response.data);
+
+    const date = data.date;
+    const explanation = data.explanation;
+    const photo = data.url;
+    const title = data.title;
+
+    // steal the date
+    console.log(`date: ${date}`);
+
+    // steal the explanation
+    console.log(`explanation: ${explanation}`);
+    localStorage.setItem("photo_explanation", explanation);
+
+    // steal the photo link
+    console.log(`photo: ${photo}`);
+    localStorage.setItem("photo_today", photo);
+
+    // steal the title
+    console.log(`title: ${title}`);
+
+    // log the errors
+    return data;
+  } catch (error) {
+    console.error(error);
   }
- 
+}
 
-export default  sendPODApiRequest
-
-
-
-
+export default sendPODApiRequest;

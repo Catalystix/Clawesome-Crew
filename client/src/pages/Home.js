@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 
-import ArticleList from '../components/ArticleList';
-import ArticleForm from '../components/ArticleForm';
-import MarsApi from '../utils/marsApi';
-import TechApi from '../utils/techApi';
-import PODApi from '../utils/podApi'
-import { QUERY_ARTICLES } from '../utils/queries';
-import { ADD_IMAGE, ADD_ARTICLE } from '../utils/mutations';
-
+import ArticleList from "../components/ArticleList";
+import ArticleForm from "../components/ArticleForm";
+import MarsApi from "../utils/marsApi";
+import TechApi from "../utils/techApi";
+import PODApi from "../utils/podApi";
+import { QUERY_ARTICLES } from "../utils/queries";
+import { ADD_IMAGE, ADD_ARTICLE } from "../utils/mutations";
+import MarsDisplay from "../components/marsPhotoDisplay";
+import TechArticle from "../components/techArticle";
+import APODsection from "../components/APODsection";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_ARTICLES);
@@ -17,7 +19,7 @@ const Home = () => {
   const [addArticle, { err }] = useMutation(ADD_ARTICLE);
   const [mars, setMars] = useState([]);
   const [pod, setPod] = useState([]);
-  const [articles, setArticles] = useState([])
+  const [articles, setArticles] = useState([]);
   console.log(mars, "mars");
   console.log(articles, "articles");
   console.log(pod, 'pod');
@@ -39,7 +41,7 @@ const Home = () => {
       <div className="flex-row justify-center">
         <div
           className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
+          style={{ border: "1px dotted #1a1a1a" }}
         >
           <ArticleForm />
         </div>
@@ -109,12 +111,8 @@ const Home = () => {
         </div>
       ))} */}
       {/* Going to hold off on this- need to maybe change API- not giving enough or what I want it to do.  */}
-
-
-
-
-
-      {mars.map(mars => (
+{/* 
+      {mars.map((mars) => (
         // modify css for this
         <div className='flex w-100 '>
           <img src={mars.img_src}>
@@ -127,7 +125,12 @@ const Home = () => {
 
         </div>
 
-      ))}
+      ))} */}
+      <div>
+        <MarsDisplay/>
+        <TechArticle/>
+        <APODsection/>
+      </div>
     </main>
   );
 };
