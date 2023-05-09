@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import NavTabs from "./NavTabs";
 import Header from "./Header/index";
 import Footer from "./Footer/index";
-import APOD from "../pages/APODsection";
-import Mars from "../pages/marsPhotoDisplay";
-import TechArticle from "../pages/techArticle";
+import ApodDisplay from "../pages/APODSingle";
+import MarsDisplay from "../pages/MarsSingle";
+import TechDisplay from "../pages/TechSingle";
 import Home from "../pages/Home";
 import Signup from "../pages/Signup";
 import Login from "../pages/Login";
@@ -27,13 +27,13 @@ export default function CosmosContainer() {
   // This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
   const renderPage = () => {
     if (currentPage === "APOD") {
-      return <APOD />;
+      return <ApodDisplay />;
     }
     if (currentPage === "Mars") {
-      return <Mars />;
+      return <MarsDisplay />;
     }
     if (currentPage === "TechArticle") {
-      return <TechArticle />;
+      return <TechDisplay />;
     }
     //! commenting out for now until we add this
     // if (currentPage === 'Favorite') {
