@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import NavTabs from './NavTabs';
 import Header from './Header/index';
 import Footer from './Footer/index';
-import APOD from './pages/APODsection';
-import Mars from './pages/marsPhotoDisplay';
-import TechArticle from './pages/techArticle';
+import APOD from "../pages/APODsection";
+import Mars from "../pages/marsPhotoDisplay";
+import TechArticle from "../pages/techArticle";
 
-import CSS from './style.css';
+// import CSS from './style.css';
 
 export default function CosmosContainer() {
   const [currentPage, setCurrentPage] = useState('APOD');
