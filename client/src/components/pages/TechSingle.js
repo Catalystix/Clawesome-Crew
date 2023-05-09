@@ -61,6 +61,7 @@ const TechDisplay = () => {
 						Tech Search
 					</button>
 					<div>
+            {/* This working but not working */}
 						{articles.map((article) => (
 							<a href={article[0]} target="_blank" rel="noreferrer">
 								<div key={article[0]}>
