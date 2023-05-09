@@ -18,7 +18,7 @@ async function sendTechApiRequest() {
   // hope's api key
   try {
     const response = await axios.get(
-      `https://api.nasa.gov/techtransfer/patent/?engine&api_key=${apiKey}`
+      `https://api.nasa.gov/techtransfer/patent/?engine&api_key=${process.env.REACT_APP_API_KEY}`
     );
 
     // pulls all data
@@ -59,6 +59,7 @@ async function sendTechApiRequest() {
     localStorage.setItem("article_description", articleDescription);
 
     // catch errors
+    return data;
   } catch (error) {
     console.error(error);
   }

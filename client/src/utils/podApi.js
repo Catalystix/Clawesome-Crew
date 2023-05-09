@@ -18,7 +18,7 @@ async function sendPODApiRequest() {
   // hope's api key
   try {
     const response = await axios.get(
-      `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
+      `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}`
     );
     const data = response.data;
 
@@ -45,6 +45,7 @@ async function sendPODApiRequest() {
     // console.log(`title: ${title}`);
 
     // log the errors
+    return data;
   } catch (error) {
     console.error(error);
   }

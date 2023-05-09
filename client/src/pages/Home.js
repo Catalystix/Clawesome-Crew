@@ -57,7 +57,7 @@ const Home = () => {
           )}
         </div> */}
 
-      <div className="toggleButton">
+      {/* <div className="toggleButton">
         <button
           onClick={async () => {
             const data = await MarsApi();
@@ -67,7 +67,7 @@ const Home = () => {
         >
           Mars Search
         </button>
-      </div>
+      </div> */}
       <div className="toggleButton">
         <button
           onClick={async () => {
@@ -119,7 +119,7 @@ const Home = () => {
       ))} */}
       {/* Going to hold off on this- need to maybe change API- not giving enough or what I want it to do.  */}
 
-      {mars.map((mars) => (
+      {/* {mars.map((mars) => (
         // modify css for this
         <div>
           <img src={mars.img_src}></img>
@@ -137,7 +137,7 @@ const Home = () => {
             Save Photo
           </button>
         </div>
-      ))}
+      ))} */}
       <div>
         <ApodDisplay />
         <TechDisplay />
