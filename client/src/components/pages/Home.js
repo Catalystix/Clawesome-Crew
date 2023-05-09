@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 
-import ArticleList from "../components/ArticleList";
-import MarsApi from "../utils/marsApi";
-import TechApi from "../utils/techApi";
-import PODapi from "../utils/podApi";
-import { QUERY_ARTICLES } from "../utils/queries";
-import { ADD_IMAGE, ADD_ARTICLE } from "../utils/mutations";
+import ArticleList from "../ArticleList";
+import MarsApi from "../../utils/marsApi";
+import TechApi from "../../utils/techApi";
+import PODapi from "../../utils/podApi";
+import { QUERY_ARTICLES } from "../../utils/queries";
+import { ADD_IMAGE, ADD_ARTICLE } from "../../utils/mutations";
 // import MarsDisplay from "./marsPhotoDisplay";
 // import TechArticle from "./techArticle";
 // import APODsection from "./APODsection";
@@ -108,7 +108,7 @@ const Home = () => {
             Save Photo
           </button>
         </div>
-      ))} */} 
+      ))} */}
 
       {/* {articles.map(article =>(
         <div>

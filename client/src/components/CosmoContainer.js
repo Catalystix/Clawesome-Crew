@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import NavTabs from "./NavTabs";
 import Header from "./Header/index";
 import Footer from "./Footer/index";
-import ApodDisplay from "../pages/APODSingle";
-import MarsDisplay from "../pages/MarsSingle";
-import TechDisplay from "../pages/TechSingle";
-import Home from "../pages/Home";
-import Signup from "../pages/Signup";
-import Login from "../pages/Login";
-import SingleArticle from "../pages/SingleArticle";
-import Profile from "../pages/Profile";
-import Favorites from "../pages/Favorites";
+import ApodDisplay from "./pages/APODSingle";
+import MarsDisplay from "./pages/MarsSingle";
+import TechDisplay from "./pages/TechSingle";
+import Home from "./pages/Home";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import SingleArticle from "./pages/SingleArticle";
+import Profile from "./pages/Profile";
+import Favorites from "./pages/Favorites";
+import Landing from "./pages/Landing";
 
 import {
   ApolloClient,
@@ -37,9 +38,8 @@ export default function CosmosContainer() {
     if (currentPage === "TechArticle") {
       return <TechDisplay />;
     }
-
-    if (currentPage === 'Favorites') {
-        return <Favorites />;
+    if (currentPage === "Favorites") {
+      return <Favorites />;
     }
   };
 
@@ -88,6 +88,7 @@ export default function CosmosContainer() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/me" element={<Profile />} />
                 <Route path="/profiles/:username" element={<Profile />} />
+                <Route path="/landing" element={<Landing />} />
                 <Route
                   path="/articles/:articleId"
                   element={<SingleArticle />}

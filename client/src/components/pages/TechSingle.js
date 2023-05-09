@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useQuery, useMutation } from '@apollo/client';
-import { techCall } from "../utils/homepageAPI";
-import { QUERY_ARTICLES } from "../utils/queries";
-import { ADD_IMAGE, ADD_ARTICLE } from "../utils/mutations";
+import { useQuery, useMutation } from "@apollo/client";
+import { techCall } from "../../utils/homepageAPI";
+import { QUERY_ARTICLES } from "../../utils/queries";
+import { ADD_IMAGE, ADD_ARTICLE } from "../../utils/mutations";
 import { Segment, Grid, Image } from "semantic-ui-react";
 
 const styles = {
@@ -23,13 +23,13 @@ const TechDisplay = () => {
   const [articles, setArticles] = useState([]);
   useEffect(async () => {
     const data = await techCall();
-    console.log("techapi", data)
+    console.log("techapi", data);
     // const results = data.results.map(result => {
     //   return {img: result[10], id: result[0], description: result[3]}
     // })
     // console.log(results);
     setArticles(data.results);
-  }, [])
+  }, []);
 
   async function saveArticles(article) {
     console.log("article", article);
@@ -63,13 +63,16 @@ const TechDisplay = () => {
           <div>
             {articles.map((article) => (
               <a href={article[0]} target="_blank" rel="noreferrer">
-              <div key={article[0]}>
-                <img style={styles.img} src={article[10]} alt="tech stuff"></img>
-                {article[3]}
-              </div>
+                <div key={article[0]}>
+                  <img
+                    style={styles.img}
+                    src={article[10]}
+                    alt="tech stuff"
+                  ></img>
+                  {article[3]}
+                </div>
               </a>
             ))}
-
           </div>
         </div>
       </div>

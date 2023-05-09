@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useQuery, useMutation } from '@apollo/client';
-import { ADD_IMAGE, ADD_ARTICLE } from "../utils/mutations";
-import { apodCall } from "../utils/homepageAPI";
+import React, { useState, useEffect } from "react";
+import { useQuery, useMutation } from "@apollo/client";
+import { ADD_IMAGE, ADD_ARTICLE } from "../../utils/mutations";
+import { apodCall } from "../../utils/homepageAPI";
 import { Segment, Grid, Image } from "semantic-ui-react";
 
 const styles = {
@@ -14,11 +14,11 @@ const styles = {
 const ApodDisplay = () => {
   const [addImage, { error }] = useMutation(ADD_IMAGE);
   const [pod, setPod] = useState({});
-  useEffect( async () => {
+  useEffect(async () => {
     const data = await apodCall();
     console.log("podAPI", data);
     setPod(data);
-  },[])
+  }, []);
   // const photo = localStorage.getItem("photo_today");
   // const explanation = localStorage.getItem("photo_explanation");
 
@@ -62,7 +62,6 @@ const ApodDisplay = () => {
               Save Photo
             </button>
           </div>
-
         </div>
       </div>
     </Segment>
