@@ -15,6 +15,7 @@ import SingleArticle from './pages/SingleArticle';
 import Profile from './pages/Profile';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import CosmosContainer from './components/CosmoContainer'
 // import Api from './utils/api';
 
 // Construct our main GraphQL API endpoint
