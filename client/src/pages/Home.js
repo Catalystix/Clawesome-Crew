@@ -116,7 +116,7 @@ const Home = () => {
         </div>
       ))} */}
       {/* Going to hold off on this- need to maybe change API- not giving enough or what I want it to do.  */}
-
+{/* 
       {mars.map((mars) => (
         // modify css for this
         <div>
@@ -135,7 +135,7 @@ const Home = () => {
             Save Photo
           </button>
         </div>
-      ))}
+      ))} */}
       <MarsDisplay />
       <TechArticle />
       <APODsection />
