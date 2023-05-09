@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 
 import ArticleList from "../components/ArticleList";
-import ArticleForm from "../components/ArticleForm";
 import MarsApi from "../utils/marsApi";
 import TechApi from "../utils/techApi";
-import PODApi from "../utils/podApi";
+import PODapi from "../utils/podApi";
 import { QUERY_ARTICLES } from "../utils/queries";
 import { ADD_IMAGE, ADD_ARTICLE } from "../utils/mutations";
-import MarsDisplay from "../components/marsPhotoDisplay";
-import TechArticle from "../components/techArticle";
-import APODsection from "../components/APODsection";
+// import MarsDisplay from "./marsPhotoDisplay";
+// import TechArticle from "./techArticle";
+// import APODsection from "./APODsection";
+import ApodDisplay from "./APODSingle";
+import TechDisplay from "./TechSingle";
+import MarsDisplay from "./MarsSingle";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_ARTICLES);
@@ -37,7 +39,7 @@ const Home = () => {
   }
   return (
     <main>
-      <div className="flex-row justify-center">
+      {/* <div className="flex-row justify-center">
         <div
           className="col-12 col-md-10 mb-3 p-3"
           style={{ border: "1px dotted #1a1a1a" }}
@@ -53,42 +55,42 @@ const Home = () => {
               title="Some Feed for Article(s)..."
             />
           )}
-        </div>
+        </div> */}
 
-        <div className="toggleButton">
-          <button
-            onClick={async () => {
-              const data = await MarsApi();
-              console.log("data", data);
-              setMars(data.photos);
-            }}
-          >
-            Mars Search
-          </button>
-        </div>
-        <div className="toggleButton">
-          <button
-            onClick={async () => {
-              const data = await TechApi();
-              console.log("data", data);
-              setArticles(data.articles);
-            }}
-          >
-            Tech Search
-          </button>
-        </div>
-        <div className="toggleButton">
-          <button
-            onClick={async () => {
-              const data = await PODApi();
-              console.log("podAPI", data);
-              setPod(data.photo);
-            }}
-          >
-            POD Search
-          </button>
-        </div>
+      <div className="toggleButton">
+        <button
+          onClick={async () => {
+            const data = await MarsApi();
+            console.log("data", data);
+            setMars(data.photos);
+          }}
+        >
+          Mars Search
+        </button>
       </div>
+      <div className="toggleButton">
+        <button
+          onClick={async () => {
+            const data = await TechApi();
+            console.log("data", data);
+            setArticles(data.articles);
+          }}
+        >
+          Tech Search
+        </button>
+      </div>
+      <div className="toggleButton">
+        <button
+          onClick={async () => {
+            const data = await PODapi();
+            console.log("podAPI", data);
+            setPod(data.photo);
+          }}
+        >
+          POD Search
+        </button>
+      </div>
+      {/* </div> */}
 
       {pod.map((pod) => (
         <div>
@@ -116,7 +118,7 @@ const Home = () => {
         </div>
       ))} */}
       {/* Going to hold off on this- need to maybe change API- not giving enough or what I want it to do.  */}
-{/* 
+
       {mars.map((mars) => (
         // modify css for this
         <div>
@@ -135,10 +137,12 @@ const Home = () => {
             Save Photo
           </button>
         </div>
-      ))} */}
-      <MarsDisplay />
-      <TechArticle />
-      <APODsection />
+      ))}
+      <div>
+        <ApodDisplay />
+        <TechDisplay />
+        <MarsDisplay />
+      </div>
     </main>
   );
 };

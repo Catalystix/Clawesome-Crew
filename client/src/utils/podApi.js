@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import apiKey from "../index";
 
 let searchButton = document.querySelector("#search");
 
@@ -15,7 +16,6 @@ let searchButton = document.querySelector("#search");
 
 async function sendPODApiRequest() {
   // hope's api key
-  const apiKey = "MxhQtdOQo4057bQmauxgjMkK7jcdbyB7ceB3CHyK";
   try {
     const response = await axios.get(
       `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
@@ -23,7 +23,7 @@ async function sendPODApiRequest() {
     const data = response.data;
 
     //log all the data
-    console.log(response.data);
+    // console.log(response.data);
 
     const date = data.date;
     const explanation = data.explanation;
@@ -31,18 +31,18 @@ async function sendPODApiRequest() {
     const title = data.title;
 
     // steal the date
-    console.log(`date: ${date}`);
+    // console.log(`date: ${date}`);
 
     // steal the explanation
-    console.log(`explanation: ${explanation}`);
+    // console.log(`explanation: ${explanation}`);
     localStorage.setItem("photo_explanation", explanation);
 
     // steal the photo link
-    console.log(`photo: ${photo}`);
+    // console.log(`photo: ${photo}`);
     localStorage.setItem("photo_today", photo);
 
     // steal the title
-    console.log(`title: ${title}`);
+    // console.log(`title: ${title}`);
 
     // log the errors
   } catch (error) {
