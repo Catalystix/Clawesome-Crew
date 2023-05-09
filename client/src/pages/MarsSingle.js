@@ -1,6 +1,6 @@
 import React from "react";
-import sendMarsApiRequest from "../utils/marsApi";
-import { Segment, Grid, Image } from 'semantic-ui-react';
+import { marsCall } from "../utils/homepageAPI";
+import { Segment, Grid, Image } from "semantic-ui-react";
 
 const styles = {
   img: {
@@ -10,7 +10,7 @@ const styles = {
 };
 
 const MarsDisplay = () => {
-  sendMarsApiRequest();
+  marsCall();
   const marsPhoto = localStorage.getItem("mars photo");
   const rover_name = localStorage.getItem("rover_name");
   const rover_status = localStorage.getItem("status");
@@ -24,5 +24,4 @@ const MarsDisplay = () => {
     </div>
   );
 };
-
 export default MarsDisplay;

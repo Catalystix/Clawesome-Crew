@@ -30,22 +30,22 @@ async function sendMarsApiRequest() {
 
     const roverName = randomPhoto.rover.name;
     const roverStatus = randomPhoto.rover.status;
-    const earthDate = randomPhoto.earth_date;
+    // const earthDate = randomPhoto.earth_date;
     const photoUrl = randomPhoto.img_src;
 
     // steal rover name
-    console.log(`Rover name: ${roverName}`);
+    // console.log(`Rover name: ${roverName}`);
     localStorage.setItem("rover_name", roverName);
 
     // steal rover status
-    console.log(`Rover status: ${roverStatus}`);
+    // console.log(`Rover status: ${roverStatus}`);
     localStorage.setItem("status", roverStatus);
 
     // earth date
-    console.log(`Earth date: ${earthDate}`);
+    // console.log(`Earth date: ${earthDate}`);
 
     // steal photo URL
-    console.log(`Photo URL: ${photoUrl}`);
+    // console.log(`Photo URL: ${photoUrl}`);
     localStorage.setItem("mars photo", photoUrl);
 
     // catch errors
