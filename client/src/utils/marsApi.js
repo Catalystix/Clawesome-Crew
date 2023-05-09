@@ -18,7 +18,7 @@ async function sendMarsApiRequest() {
   // hope's api key
   try {
     const response = await axios.get(
-      `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${apiKey}`
+      `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1&api_key=${apiKey}`
     );
 
     // pull all data
@@ -49,6 +49,7 @@ async function sendMarsApiRequest() {
     localStorage.setItem("mars photo", photoUrl);
 
     // catch errors
+    return data;
   } catch (error) {
     console.error(error);
   }
