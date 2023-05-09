@@ -26,12 +26,13 @@ const ApodDisplay = () => {
   }
 
   return (
-    <div>
-      <h2>Astronomy Picture of the Day</h2>
-      <pre>{process.env.REACT_APP_API_KEY}</pre>
+    <Segment>
+      <div>
+        <h2>Astronomy Picture of the Day</h2>
+        <pre>{process.env.REACT_APP_API_KEY}</pre>
       <img style={styles.img} src={photo} alt="space"></img>
-      <p>{explanation}</p>
-      <div className="toggleButton">
+        <p>{explanation}</p>
+        <div className="toggleButton">
         <button
           onClick={async () => {
             const data = await apodCall();
@@ -60,6 +61,7 @@ const ApodDisplay = () => {
       ))}
       </div>
     </div>
+    </Segment>
   );
 };
 

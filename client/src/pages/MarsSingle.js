@@ -31,12 +31,13 @@ const MarsDisplay = () => {
   };
 
   return (
-    <div>
-      <h2>Mars Rover Picture of the Day</h2>
-      <img style={styles.img} src={marsPhoto} alt="mars"></img>
-      <p>Rover: {rover_name}</p>
-      <p>Status: {rover_status}</p>
-
+    <Segment>  
+      <div>
+        <h2>Mars Rover Picture of the Day</h2>
+        <img style={styles.img} src={marsPhoto} alt="mars"></img>
+        <p>Rover: {rover_name}</p>
+        <p>Status: {rover_status}</p>
+  
       <div className="toggleButton" >
         <button onClick={async () => {
           const data = await marsCall()
@@ -62,6 +63,7 @@ const MarsDisplay = () => {
         
       </div>
     </div>
+    </Segment>
   );
 };
 export default MarsDisplay;
