@@ -64,8 +64,8 @@ const TechDisplay = () => {
 					<div>
             {/* This working but not working */}
 						{articles.map((article) => (
-							<a href={article[0]} target="_blank" rel="noreferrer">
-								<div key={article[0]}>
+							<a  href={`https://technology.nasa.gov/patent/${article[1]}`}target="_blank" rel="noreferrer">
+								<div key={article[1]}>
 									<img
 										style={styles.img}
 										src={article[10]}
@@ -74,7 +74,7 @@ const TechDisplay = () => {
 									<p>description: {article[3]}</p>
 								</div>
 								<button
-									data-url={article[0]}
+									data-url={article[1]}
 									data-img={article[10]}
 									data-description={article[3]}
 									onClick={(e) => {
