@@ -31,7 +31,7 @@ const ApodDisplay = () => {
   }
 
   return (
-    <Segment>
+    <Segment basic>
       <div>
         <h2>Astronomy Picture of the Day</h2>
 
@@ -49,7 +49,7 @@ const ApodDisplay = () => {
           </button>
 
           <div>
-            <Image src={pod?.hdurl} size="massive"></Image>
+            <Image src={pod?.hdurl} size="huge"></Image>
             <button
               data-img={pod?.hdurl}
               data-name={pod?.title}
