@@ -1,24 +1,24 @@
 import React from 'react';
 import { Menu } from 'semantic-ui-react';
+import { Link } from "react-router-dom";
 
 export default function NavTabs({ currentPage, handlePageChange }) {
   return (
     <div style={{ backgroundColor: "#2d283e" }}>
       <Menu pointing secondary size="large">
         <Menu.Item
+          as={Link}
+          to="/APOD"
           name="Pic of the Day"
-          active={currentPage === "APODsection"}
-          onClick={() => handlePageChange("APODsection")}
           style={{
-            color: currentPage === "APODsection" ? "#d1d7e0" : "#564f6f",
-            borderBottom:
-              currentPage === "APODsection" ? "2px solid #d1d7e0" : "",
+            color: currentPage === "APOD" ? "#d1d7e0" : "#564f6f",
+            borderBottom: currentPage === "APOD" ? "2px solid #d1d7e0" : "",
           }}
         />
         <Menu.Item
           name="Mars Photos"
-          active={currentPage === "MarsDisplay"}
-          onClick={() => handlePageChange("ProjecMarsDisplayts")}
+          as={Link}
+          to="/mars"
           style={{
             color: currentPage === "MarsDisplay" ? "#d1d7e0" : "#564f6f",
             borderBottom:
@@ -27,8 +27,8 @@ export default function NavTabs({ currentPage, handlePageChange }) {
         />
         <Menu.Item
           name="Space Articles"
-          active={currentPage === "TechArticle"}
-          onClick={() => handlePageChange("TechArticle")}
+          as={Link}
+          to="/tech"
           style={{
             color: currentPage === "TechArticle" ? "#d1d7e0" : "#564f6f",
             borderBottom:
@@ -37,8 +37,8 @@ export default function NavTabs({ currentPage, handlePageChange }) {
         />
         <Menu.Item
           name="Favorites"
-          active={currentPage === "Favorites"}
-          onClick={() => handlePageChange("Favorites")}
+          as={Link}
+          to="/favorites"
           style={{
             color: currentPage === "Favorites" ? "#d1d7e0" : "#564f6f",
             borderBottom:

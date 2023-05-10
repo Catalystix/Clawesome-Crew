@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-import apiKey from "../index";
+//import apiKey from "../index";
+const apiKey = "huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben";
 
 let searchButton = document.querySelector("#search");
 
@@ -15,7 +16,6 @@ let searchButton = document.querySelector("#search");
 //title
 
 async function sendPODApiRequest() {
-  // hope's api key
   try {
     const response = await axios.get(
       `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
@@ -23,7 +23,7 @@ async function sendPODApiRequest() {
     const data = response.data;
 
     //log all the data
-    // console.log(response.data);
+    console.log(response.data);
 
     const date = data.date;
     const explanation = data.explanation;
@@ -45,6 +45,7 @@ async function sendPODApiRequest() {
     // console.log(`title: ${title}`);
 
     // log the errors
+    return data;
   } catch (error) {
     console.error(error);
   }

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 
-import ArticleList from "../components/ArticleList";
-import MarsApi from "../utils/marsApi";
-import TechApi from "../utils/techApi";
-import PODapi from "../utils/podApi";
-import { QUERY_ARTICLES } from "../utils/queries";
-import { ADD_IMAGE, ADD_ARTICLE } from "../utils/mutations";
+import ArticleList from "../ArticleList";
+import MarsApi from "../../utils/marsApi";
+import TechApi from "../../utils/techApi";
+import PODapi from "../../utils/podApi";
+import { QUERY_ARTICLES } from "../../utils/queries";
+import { ADD_IMAGE, ADD_ARTICLE } from "../../utils/mutations";
 // import MarsDisplay from "./marsPhotoDisplay";
 // import TechArticle from "./techArticle";
 // import APODsection from "./APODsection";
@@ -15,28 +15,28 @@ import TechDisplay from "./TechSingle";
 import MarsDisplay from "./MarsSingle";
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_ARTICLES);
-  // const articles = data?.articles || [];
-  const [addImage, { error }] = useMutation(ADD_IMAGE);
-  const [addArticle, { err }] = useMutation(ADD_ARTICLE);
-  const [mars, setMars] = useState([]);
-  const [pod, setPod] = useState([]);
-  const [articles, setArticles] = useState([]);
-  console.log(mars, "mars");
-  console.log(articles, "articles");
+  // const { loading, data } = useQuery(QUERY_ARTICLES);
+  // // const articles = data?.articles || [];
+  // const [addImage, { error }] = useMutation(ADD_IMAGE);
+  // const [addArticle, { err }] = useMutation(ADD_ARTICLE);
+  // const [mars, setMars] = useState([]);
+  // const [pod, setPod] = useState([]);
+  // const [articles, setArticles] = useState([]);
+  // console.log(mars, "mars");
+  // console.log(articles, "articles");
 
-  async function saveArticles(article) {
-    console.log("article", article);
-    const { data } = await addArticle({
-      variables: article,
-    });
-  }
-  async function savePhoto(photo) {
-    console.log("photo", photo);
-    const { data } = await addImage({
-      variables: photo,
-    });
-  }
+  // async function saveArticles(article) {
+  //   console.log("article", article);
+  //   const { data } = await addArticle({
+  //     variables: article,
+  //   });
+  // }
+  // async function savePhoto(photo) {
+  //   console.log("photo", photo);
+  //   const { data } = await addImage({
+  //     variables: photo,
+  //   });
+  // }
   return (
     <main>
       {/* <div className="flex-row justify-center">
@@ -57,7 +57,7 @@ const Home = () => {
           )}
         </div> */}
 
-      <div className="toggleButton">
+      {/* <div className="toggleButton">
         <button
           onClick={async () => {
             const data = await MarsApi();
@@ -67,8 +67,8 @@ const Home = () => {
         >
           Mars Search
         </button>
-      </div>
-      <div className="toggleButton">
+      </div> */}
+      {/* <div className="toggleButton">
         <button
           onClick={async () => {
             const data = await TechApi();
@@ -92,7 +92,7 @@ const Home = () => {
       </div>
       {/* </div> */}
 
-      {pod.map((pod) => (
+      {/* {pod.map((pod) => (
         <div>
           <img src={pod.photo}></img>
           <button
@@ -108,7 +108,7 @@ const Home = () => {
             Save Photo
           </button>
         </div>
-      ))}
+      ))} */}
 
       {/* {articles.map(article =>(
         <div>
@@ -119,7 +119,7 @@ const Home = () => {
       ))} */}
       {/* Going to hold off on this- need to maybe change API- not giving enough or what I want it to do.  */}
 
-      {mars.map((mars) => (
+      {/* {mars.map((mars) => (
         // modify css for this
         <div>
           <img src={mars.img_src}></img>
@@ -137,12 +137,12 @@ const Home = () => {
             Save Photo
           </button>
         </div>
-      ))}
-      <div>
+      ))} */}
+      {/* <div>
         <ApodDisplay />
         <TechDisplay />
         <MarsDisplay />
-      </div>
+      </div> */}
     </main>
   );
 };
