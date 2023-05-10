@@ -1,10 +1,11 @@
 import React from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
+import 'semantic-ui-css/semantic.min.css';
 
 export default function NavTabs({ currentPage, handlePageChange }) {
   return (
-    <div style={{ backgroundColor: "#2d283e" }}>
+    <div style={{ backgroundColor: "#45a29e" }}>
       <Menu pointing secondary size="large">
         <Menu.Item
           as={Link}

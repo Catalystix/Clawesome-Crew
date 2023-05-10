@@ -3,6 +3,7 @@ import { marsCall } from "../../utils/homepageAPI";
 import { useQuery, useMutation } from "@apollo/client";
 import { ADD_IMAGE, ADD_ARTICLE } from "../../utils/mutations";
 import { Segment, Grid, Image } from "semantic-ui-react";
+import 'semantic-ui-css/semantic.min.css';
 
 const styles = {
   img: {

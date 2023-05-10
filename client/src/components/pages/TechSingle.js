@@ -4,6 +4,7 @@ import { techCall } from "../../utils/homepageAPI";
 import { QUERY_ARTICLES } from "../../utils/queries";
 import { ADD_IMAGE, ADD_ARTICLE } from "../../utils/mutations";
 import { Segment, Grid, Image } from "semantic-ui-react";
+import 'semantic-ui-css/semantic.min.css';
 
 const styles = {
 	img: {
