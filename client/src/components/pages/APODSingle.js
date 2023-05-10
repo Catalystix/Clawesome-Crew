@@ -3,6 +3,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { ADD_IMAGE, ADD_ARTICLE } from "../../utils/mutations";
 import { apodCall } from "../../utils/homepageAPI";
 import { Segment, Grid, Image } from "semantic-ui-react";
+import 'semantic-ui-css/semantic.min.css';
 
 const styles = {
   img: {
@@ -48,7 +49,7 @@ const ApodDisplay = () => {
           </button>
 
           <div>
-            <img src={pod?.hdurl}></img>
+            <Image src={pod?.hdurl} size="massive"></Image>
             <button
               data-img={pod?.hdurl}
               data-name={pod?.title}

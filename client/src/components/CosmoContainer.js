@@ -13,6 +13,7 @@ import Profile from "./pages/Profile";
 import Favorites from "./pages/Favorites";
 import Landing from "./pages/Landing";
 import ArticleList from "./ArticleList";
+import CSS from './style.css';
 
 import {
   ApolloClient,
@@ -22,6 +23,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import 'semantic-ui-css/semantic.min.css';
 
 // import CSS from './style.css';
 
