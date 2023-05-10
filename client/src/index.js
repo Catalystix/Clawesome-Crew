@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import 'semantic-ui-css/semantic.min.css';
-require("dotenv").config();
+import "semantic-ui-css/semantic.min.css";
 
-const apiKey = process.env.REACT_APP_API_KEY;
+//const apiKey = apiKey;
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,4 +19,4 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-export default apiKey;
+//export default apiKey;

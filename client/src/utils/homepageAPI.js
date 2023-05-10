@@ -1,8 +1,8 @@
 import axios from "axios";
-import apiKey from "../index";
+//import apiKey from "../index";
+const apiKey = "huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben";
 
 export async function apodCall() {
-  // hope's api key
   try {
     const response = await axios.get(
       `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
@@ -15,6 +15,7 @@ export async function apodCall() {
     localStorage.setItem("photo_explanation", explanation);
 
     localStorage.setItem("photo_today", photo);
+    return data;
   } catch (error) {
     console.error(error);
   }
@@ -24,7 +25,7 @@ export async function marsCall() {
   // hope's api key
   try {
     const response = await axios.get(
-      `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${apiKey}`
+      `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1&api_key=${apiKey}`
     );
 
     // pull all data
@@ -49,6 +50,7 @@ export async function marsCall() {
     localStorage.setItem("mars photo", photoUrl);
 
     // catch errors
+    return data;
   } catch (error) {
     console.error(error);
   }
@@ -93,6 +95,7 @@ export async function techCall() {
     localStorage.setItem("article_description", articleDescription);
 
     // catch errors
+    return data;
   } catch (error) {
     console.error(error);
   }
