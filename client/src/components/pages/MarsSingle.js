@@ -28,7 +28,7 @@ const MarsDisplay = () => {
   return (
     <div style={{ backgroundColor: "#1f2833" }}>
     <Segment basic>
-      <div style={{ backgroundColor: "#1f2833" }}>
+      <div className="ui padded segment" style={{ backgroundColor: "#1f2833" }}>
         <h2>Mars Rover Picture of the Day</h2>
 
         <div className="toggleButton">

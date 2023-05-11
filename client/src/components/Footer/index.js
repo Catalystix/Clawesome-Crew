@@ -7,11 +7,11 @@ const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <div style={{ backgroundColor: '#000000 !important' }}>
-      <Segment basic>
-      <div style={{ backgroundColor: '#000000 !important' }}>
+    <div style={{ backgroundColor: '#1f2833' }}>
+      <Segment basic >
+      <div className="ui padded segment" style={{ backgroundColor: '#1f2833' }}>
         <footer>
-          <div>
+          <div style={{ textAlign: "right" }}> 
             {location.pathname !== '/' && (
           <Button inverted color='teal' className="ui very padded"
                 onClick={() => navigate(-1)}
@@ -19,6 +19,7 @@ const Footer = () => {
                 &larr; Go Back
               </Button>
             )}
+          <div style={{ textAlign: "center" }}>
             <h4>
               Made with{' '}
               <span
@@ -31,6 +32,7 @@ const Footer = () => {
               </span>{' '}
               by the Cats.
             </h4>
+          </div>
           </div>
         </footer>
         </div>
