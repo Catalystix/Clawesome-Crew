@@ -23,40 +23,48 @@ const Header = () => {
             className="left floated"
           />
         </Link>
-        <Menu pointing secondary size="large">
-          <Menu.Item
-            as={Link}
-            to="/APOD"
-            name="Pic of the Day"
-            style={{
-              color: "#564f6f",
-            }}
-          />
-          <Menu.Item
-            name="Mars Photos"
-            as={Link}
-            to="/mars"
-            style={{
-              color: "#564f6f",
-            }}
-          />
-          <Menu.Item
-            name="Space Articles"
-            as={Link}
-            to="/tech"
-            style={{
-              color: "#564f6f",
-            }}
-          />
-          <Menu.Item
-            name="Favorites"
-            as={Link}
-            to="/favorites"
-            style={{
-              color: "#564f6f",
-            }}
-          />
-        </Menu>
+        {Auth.loggedIn() ? (
+          <>
+            <Menu pointing secondary size="large">
+              <Menu.Item
+                as={Link}
+                to="/APOD"
+                name="Pic of the Day"
+                style={{
+                  color: "#564f6f",
+                }}
+              />
+              <Menu.Item
+                name="Mars Photos"
+                as={Link}
+                to="/mars"
+                style={{
+                  color: "#564f6f",
+                }}
+              />
+              <Menu.Item
+                name="Space Articles"
+                as={Link}
+                to="/tech"
+                style={{
+                  color: "#564f6f",
+                }}
+              />
+              <Menu.Item
+                name="Favorites"
+                as={Link}
+                to="/favorites"
+                style={{
+                  color: "#564f6f",
+                }}
+              />
+            </Menu>
+          </>
+        ) : (
+          <>
+            <div></div>
+          </>
+        )}
       </Grid.Column>
       <Grid.Column verticalAlign="right" textAlign="middle">
         <Grid.Row></Grid.Row>
