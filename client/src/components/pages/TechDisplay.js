@@ -65,6 +65,7 @@ const TechDisplay = () => {
                       </Card.Description>
                     </Card.Content>
                     <Card.Content extra textAlign="center">
+                      <div className="ui two buttons">
                       <Button
                         color="red"
                         content="Save"
@@ -81,6 +82,7 @@ const TechDisplay = () => {
                           });
                         }}
                       />
+                      </div>
                     </Card.Content>
                   </Card>
                 ))}
