@@ -27,7 +27,7 @@ const TechDisplay = () => {
   return (
     <div style={{ backgroundColor: "#1f2833" }}>
       <Segment basic>
-        <div style={{ backgroundColor: "#1f2833" }}>
+        <div className="ui padded segment" style={{ backgroundColor: "#1f2833" }}>
           <h2>Tech Article of the Day</h2>
           <div className="toggleButton">
             <Button
@@ -65,6 +65,7 @@ const TechDisplay = () => {
                       </Card.Description>
                     </Card.Content>
                     <Card.Content extra textAlign="center">
+                      <div className="ui two buttons">
                       <Button
                         color="red"
                         content="Save"
@@ -81,6 +82,7 @@ const TechDisplay = () => {
                           });
                         }}
                       />
+                      </div>
                     </Card.Content>
                   </Card>
                 ))}
