@@ -18,54 +18,70 @@ const TechDisplay = () => {
   async function saveArticle(article) {
     console.log("article", article);
     const { data } = await addArticle({
-      variables: article,
+      variables: article
     });
   }
 
   return (
-	<div style={{ backgroundColor: '#1f2833'}}>
-    <Segment basic>
-      <div style={{ backgroundColor: '#1f2833'}}>
-        <h2>Tech Article of the Day</h2>
-        <div className="toggleButton">
-          <Button inverted color='teal' className="ui very padded"
-            onClick={async () => {
-              const data = await techCall();
-              console.log("data", data);
-              setArticles(data.results);
-            }}
-          >
-            Tech Search
-          </Button>
-		  <Divider />
-          <div>
-            <Card.Group>
-              {articles.map((article) => (
-                <Card key={article[0]} raised>
-                  <Image src={article[10]} wrapped ui={false} />
-                  <Card.Content>
-                    <Card.Header>{article[1]}</Card.Header>
-                    <Card.Description>{article[3]}</Card.Description>
-                  </Card.Content>
-                  <Card.Content extra textAlign="center">
-					<Button color='red' content='Save' icon='heart' onClick={(e) => {
-						e.preventDefault();
-						saveArticle({
-							url: e.target.dataset.url,
-							img: e.target.dataset.img,
-							description: e.target.dataset.description,
-						});
-						}} />
-
-                  </Card.Content>
-                </Card>
-              ))}
-            </Card.Group>
+    <div style={{ backgroundColor: "#1f2833" }}>
+      <Segment basic>
+        <div style={{ backgroundColor: "#1f2833" }}>
+          <h2>Tech Article of the Day</h2>
+          <div className="toggleButton">
+            <Button
+              inverted
+              color="teal"
+              className="ui very padded"
+              onClick={async () => {
+                const data = await techCall();
+                console.log("data", data);
+                setArticles(data.results);
+              }}
+            >
+              Tech Search
+            </Button>
+            <Divider />
+            <div>
+              <Card.Group>
+                {articles.map((article) => (
+                  <Card key={article[0]} raised>
+                    <a
+                      href={`https://technology.nasa.gov/patent/${article[1]}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <Image src={article[10]} alt="tech stuff" />
+                    </a>
+                    <Card.Content>
+                      <Card.Header>{article[1]}</Card.Header>
+                      <Card.Description>{article[3]}</Card.Description>
+                    </Card.Content>
+                    <Card.Content extra textAlign="center">
+                      <Button
+                        color="red"
+                        content="Save"
+                        icon="heart"
+                        data-url={article[1]}
+                        data-img={article[10]}
+                        data-description={article[3]}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          saveArticle({
+                            url: e.target.dataset.url,
+                            img: e.target.dataset.img,
+                            description: e.target.dataset.description
+                          });
+                        }}
+                      />
+                    </Card.Content>
+                  </Card>
+                ))}
+              </Card.Group>
+            </div>
           </div>
         </div>
-      </div>
-    </Segment>
-	</div>
+      </Segment>
+    </div>
   );
 };
 
