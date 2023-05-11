@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Segment, Grid, Image } from 'semantic-ui-react';
+import { Segment, Grid, Image, Button } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 const Footer = () => {
@@ -13,11 +13,11 @@ const Footer = () => {
         <footer>
           <div>
             {location.pathname !== '/' && (
-              <button
+          <Button inverted color='teal' className="ui very padded"
                 onClick={() => navigate(-1)}
               >
                 &larr; Go Back
-              </button>
+              </Button>
             )}
             <h4>
               Made with{' '}
