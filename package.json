@@ -1,0 +1,20 @@
+{
+  "name": "clawesome-crew",
+  "version": "1.0.0",
+  "description": "[![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://lbesson.mit-license.org/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Catalystix/Clawesome-Crew.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Catalystix/Clawesome-Crew/issues"
+  },
+  "homepage": "https://github.com/Catalystix/Clawesome-Crew#readme"
+}
