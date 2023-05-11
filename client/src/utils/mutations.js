@@ -27,6 +27,7 @@ mutation removeImage($imageId: ID!) {
     _id
     name
     url
+    description
   }
 }`
 

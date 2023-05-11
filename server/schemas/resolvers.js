@@ -19,7 +19,8 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('articles');
+        return User.findOne({ _id: context.user._id }).populate('articles'),
+        User.find({_id: context.user._id}).populate('images');
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -61,6 +62,38 @@ const resolvers = {
         );
 
         return article;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addImage: async (parent,  args, context) => {
+      if (context.user) {
+        const image = await DailyImage.create({
+          ...args,
+          user_id: context.user._id
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { images: image._id } }
+        );
+
+        return image;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    removeImage: async (parent, { imageId }, context) => {
+      if (context.user) {
+        const image = await DailyImage.findOneAndDelete({
+          _id: imageId,
+          user_id: context.user._id,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { images: image._id } }
+        );
+
+        return image;
       }
       throw new AuthenticationError('You need to be logged in!');
     },

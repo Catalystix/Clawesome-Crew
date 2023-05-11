@@ -12,7 +12,7 @@ const imageSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    user: {
+    user_id: {
         type: Schema.ObjectId,
         ref: 'User'
     },

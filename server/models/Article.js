@@ -4,9 +4,7 @@ const dateFormat = require('../utils/dateFormat');
 const articleSchema = new Schema({
   articleText: {
     type: String,
-    required: 'You need to leave a article!',
-    minlength: 1,
-    maxlength: 280,
+  
     trim: true,
   },
   articleAuthor: {
