@@ -52,7 +52,7 @@ const ApodDisplay = () => {
           <Divider />
 
           <div style={{ textAlign: "center" }}>
-            <Image src={pod?.hdurl} size="huge" centered></Image>
+            <Image src={pod?.hdurl} size="huge" centered raised></Image>
             <Divider />
             <Button
               color="red"
