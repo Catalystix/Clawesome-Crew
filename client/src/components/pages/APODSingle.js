@@ -33,7 +33,7 @@ const ApodDisplay = () => {
   return (
     <div style={{ backgroundColor: "#1f2833" }}>
     <Segment basic>
-    <div className="ui padded segment" style={{ backgroundColor: "#1f2833" }}>
+    <div className="ui padded segment" style={{ backgroundColor: "#1f2833", textAlign: "center" }}> 
         <h2>Astronomy Picture of the Day</h2>
 
         <div className="toggleButton">
