@@ -15,6 +15,7 @@ const typeDefs = gql`
     articleAuthor: String
     createdAt: String
     comments: [Comment]!
+    image: String
   }
 
   type Comment {
@@ -22,6 +23,12 @@ const typeDefs = gql`
     commentText: String
     commentAuthor: String
     createdAt: String
+  }
+
+  type Image {
+    _id: ID
+    url: String!
+    name: String
   }
 
   type Auth {
@@ -44,6 +51,8 @@ const typeDefs = gql`
     addComment(articleId: ID!, commentText: String!): Article
     removeArticle(articleId: ID!): Article
     removeComment(articleId: ID!, commentId: ID!): Article
+    addImage(url: String!, name: String!): Image
+    removeImage(imageId: ID!):Image
   }
 `;
 
