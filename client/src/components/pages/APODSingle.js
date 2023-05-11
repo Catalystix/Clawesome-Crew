@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { ADD_IMAGE, ADD_ARTICLE } from "../../utils/mutations";
 import { apodCall } from "../../utils/homepageAPI";
-import { Segment, Grid, Image } from "semantic-ui-react";
+import { Segment, Grid, Image, Button, Divider } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
 
 const styles = {
@@ -31,14 +31,16 @@ const ApodDisplay = () => {
   }
 
   return (
+    <div style={{ backgroundColor: "#1f2833" }}>
     <Segment basic>
-      <div>
+    <div style={{ backgroundColor: "#1f2833" }}>
         <h2>Astronomy Picture of the Day</h2>
 
-        {/* <img style={styles.img} src={photo} alt="space"></img>
-        <p>{explanation}</p> */}
         <div className="toggleButton">
-          <button
+        <Button
+            inverted
+            color="teal"
+            className="ui very padded"
             onClick={async () => {
               const data = await apodCall();
               console.log("podAPI", data);
@@ -46,11 +48,16 @@ const ApodDisplay = () => {
             }}
           >
             POD Search
-          </button>
+          </Button>
+          <Divider />
 
-          <div>
-            <Image src={pod?.hdurl} size="huge"></Image>
-            <button
+          <div style={{ textAlign: "center" }}>
+            <Image src={pod?.hdurl} size="huge" centered></Image>
+            <Divider />
+            <Button
+              color="red"
+              content="Save"
+              icon="heart"
               data-img={pod?.hdurl}
               data-name={pod?.title}
               onClick={(e) =>
@@ -60,12 +67,12 @@ const ApodDisplay = () => {
                 })
               }
             >
-              Save Photo
-            </button>
+            </Button>
           </div>
         </div>
       </div>
     </Segment>
+    </div>
   );
 };
 
