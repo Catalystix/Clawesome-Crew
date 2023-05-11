@@ -1,12 +1,12 @@
 import React from "react";
-import logoImg from "../../assets/catlogo.png";
-import 'semantic-ui-css/semantic.min.css';
+import "semantic-ui-css/semantic.min.css";
+import apiKey from "../..";
 
 export default function Landing() {
+  console.log(apiKey);
   return (
     <div>
-      <p>Testing</p>
-      <img src={logoImg} />
+      <p>test</p>
     </div>
   );
 }

@@ -1,24 +1,25 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Segment, Grid, Image } from 'semantic-ui-react';
+import { Segment, Grid, Image, Button } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <div style={{ backgroundColor: '#000000 !important' }}>
-      <Segment basic>
-      <div style={{ backgroundColor: '#000000 !important' }}>
+    <div style={{ backgroundColor: '#1f2833' }}>
+      <Segment basic >
+      <div className="ui padded segment" style={{ backgroundColor: '#1f2833' }}>
         <footer>
-          <div>
+          <div style={{ textAlign: "right" }}> 
             {location.pathname !== '/' && (
-              <button
+          <Button inverted color='teal' className="ui very padded"
                 onClick={() => navigate(-1)}
               >
                 &larr; Go Back
-              </button>
+              </Button>
             )}
+          <div style={{ textAlign: "center" }}>
             <h4>
               Made with{' '}
               <span
@@ -31,6 +32,7 @@ const Footer = () => {
               </span>{' '}
               by the Cats.
             </h4>
+          </div>
           </div>
         </footer>
         </div>
