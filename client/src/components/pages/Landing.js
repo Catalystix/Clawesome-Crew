@@ -4,5 +4,9 @@ import apiKey from "../..";
 
 export default function Landing() {
   console.log(apiKey);
-  return <div></div>;
+  return (
+    <div>
+      <p>test</p>
+    </div>
+  );
 }
