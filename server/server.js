@@ -30,6 +30,14 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
+app.get("/", (req, res) => {
+  const options = {
+    method: "GET",
+    url: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1&api_key={}",
+    headers: {},
+  };
+});
+
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();

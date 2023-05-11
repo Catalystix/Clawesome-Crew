@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "semantic-ui-css/semantic.min.css";
+require("dotenv").config();
 
 const apiKey = process.env.REACT_APP_API_KEY;
 

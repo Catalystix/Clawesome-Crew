@@ -6,7 +6,7 @@ import 'semantic-ui-css/semantic.min.css';
 export default function NavTabs() {
   return (
     <div style={{ backgroundColor: "#45a29e" }}>
-      <Menu pointing secondary size="large">
+      {/* <Menu pointing secondary size="large">
         <Menu.Item
           as={Link}
           to="/APOD"
@@ -39,7 +39,7 @@ export default function NavTabs() {
             color: "#564f6f",
           }}
         />
-      </Menu>
+      </Menu> */}
     </div>
   );
 }
