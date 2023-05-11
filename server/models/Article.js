@@ -2,10 +2,13 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const articleSchema = new Schema({
-  articleText: {
+  description: {
     type: String,
-  
+    
     trim: true,
+  },
+  image:{
+    
   },
   articleAuthor: {
     type: String,

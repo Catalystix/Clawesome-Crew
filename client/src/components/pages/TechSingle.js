@@ -80,7 +80,7 @@ const TechDisplay = () => {
 									onClick={(e) => {
 										e.preventDefault();
 										saveArticles({
-											_id: e.target.dataset.url,
+											url: e.target.dataset.url,
 											image: e.target.dataset.img,
 											description: e.target.dataset.description,
 										});
