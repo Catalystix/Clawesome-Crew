@@ -11,14 +11,16 @@ const TechDisplay = () => {
 
   useEffect(async () => {
     const data = await techCall();
-    console.log("techapi", data);
+
+    // data.results is the array of results we were trying to get in homepageAPI, better to return here instead so it can be accessed by 'articles' -HOPE
     setArticles(data.results);
+    console.log(articles);
   }, []);
 
   async function saveArticle(article) {
     console.log("article", article);
     const { data } = await addArticle({
-      variables: article
+      variables: article,
     });
   }
 
@@ -53,8 +55,14 @@ const TechDisplay = () => {
                       <Image src={article[10]} alt="tech stuff" />
                     </a>
                     <Card.Content>
-                      <Card.Header>{article[1]}</Card.Header>
-                      <Card.Description>{article[3]}</Card.Description>
+                      <Card.Header>
+                        {/* 'article[2] targets the title of each article, the replace method edits out that weird styling text -HOPE */}
+                        {article[2].replace(/<[^>]*>/g, "")}
+                      </Card.Header>
+                      <Card.Description>
+                        {/* Same replace method applied here -HOPE */}
+                        {article[3].replace(/<[^>]*>/g, "")}
+                      </Card.Description>
                     </Card.Content>
                     <Card.Content extra textAlign="center">
                       <Button
@@ -69,7 +77,7 @@ const TechDisplay = () => {
                           saveArticle({
                             url: e.target.dataset.url,
                             img: e.target.dataset.img,
-                            description: e.target.dataset.description
+                            description: e.target.dataset.description,
                           });
                         }}
                       />

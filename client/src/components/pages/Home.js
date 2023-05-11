@@ -11,7 +11,7 @@ import { ADD_IMAGE, ADD_ARTICLE } from "../../utils/mutations";
 // import TechArticle from "./techArticle";
 // import APODsection from "./APODsection";
 import ApodDisplay from "./APODSingle";
-import TechDisplay from "./TechSingle";
+import TechDisplay from "./TechDisplay";
 import MarsDisplay from "./MarsSingle";
 
 const Home = () => {
