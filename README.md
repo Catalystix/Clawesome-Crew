@@ -22,7 +22,7 @@
 
 [Screenshots](#Screenshots)
 
-[Authors](#Authors-(alphabetical))
+[Authors (alphabetical)](#Authors-(alphabetical))
 
 [License](#license)
 
