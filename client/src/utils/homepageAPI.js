@@ -65,37 +65,33 @@ export async function techCall() {
 
     // pulls all data
     const data = response.data;
+    // console.log(data);
 
-    const results = data.results;
+    // const results = data.results;
+    // console.log(results);
 
-    // pics random article
-    const randomIndex = Math.floor(Math.random() * results.length);
-    const randomResult = results[randomIndex];
+    // // this is taking the data and returning only the edited titles
+    // // we need to still return everything and then map it in TechDisplay -HOPE
+    // const titles_edited = results.map((data) => {
+    //   return data[2].replace(/<[^>]*>/g, "");
+    // });
+    // console.log(titles_edited);
 
-    // logs the data we want to use
-    const articleID = `https://technology.nasa.gov/patent/${randomResult[1]}`;
-    const articleTitle = randomResult[2];
-    const articleImg = randomResult[10];
-    const articleDescription = randomResult[3];
+    // // pics random article
+    // // don't think we need this anymore -HOPE
+    // const randomIndex = Math.floor(Math.random() * results.length);
+    // const randomResult = results[randomIndex];
 
-    // steal article id
-    // console.log(`article ID: ${articleID}`);
-    localStorage.setItem("article_ID", articleID);
+    // the data we want to use
+    // const articleID = `https://technology.nasa.gov/patent/${results[1]}`;
+    // const articleTitle = results[2];
+    // const articleImg = results[10];
+    // const articleDescription = results[3];
 
-    // steal article title (it displays weird)
-    // console.log(`article Title: ${articleTitle}`);
-    localStorage.setItem("article_title", articleTitle);
-
-    //steal article image
-    // console.log(`article Img: ${articleImg}`);
-    localStorage.setItem("article_img", articleImg);
-
-    // steal article description (it displays better but is long)
-    // console.log(`article Description: ${articleDescription}`);
-    localStorage.setItem("article_description", articleDescription);
+    // this is returning everything, can't send specific data over to TechDisplay -HOPE
+    return data;
 
     // catch errors
-    return data;
   } catch (error) {
     console.error(error);
   }

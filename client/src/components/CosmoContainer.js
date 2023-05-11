@@ -4,7 +4,7 @@ import Header from "./Header/index";
 import Footer from "./Footer/index";
 import ApodDisplay from "./pages/APODSingle";
 import MarsDisplay from "./pages/MarsSingle";
-import TechDisplay from "./pages/TechSingle";
+import TechDisplay from "./pages/TechDisplay";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -13,7 +13,7 @@ import Profile from "./pages/Profile";
 import Favorites from "./pages/Favorites";
 import Landing from "./pages/Landing";
 import ArticleList from "./ArticleList";
-import CSS from './style.css';
+import CSS from "./style.css";
 
 import {
   ApolloClient,
@@ -23,7 +23,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import 'semantic-ui-css/semantic.min.css';
+import "semantic-ui-css/semantic.min.css";
 
 // import CSS from './style.css';
 
