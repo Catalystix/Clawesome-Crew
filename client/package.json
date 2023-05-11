@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
-    "camilaStart": "react-scripts start",
+    "nonLegacyStart": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
