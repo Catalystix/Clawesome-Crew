@@ -12,7 +12,7 @@
 
 [Run Locally](#Run-Locally)
 
-[Environmental Variables](#Environmental-Variables)
+[Environment Variables](#Environmental-Variables)
 
 [API Reference](#API-Reference)
 
