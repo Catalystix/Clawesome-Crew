@@ -1,18 +1,19 @@
-const express = require('express');
-const { ApolloServer } = require('apollo-server-express');
-const path = require('path');
-const { authMiddleware } = require('./utils/auth');
+const express = require("express");
+const router = express.Router();
+const { ApolloServer } = require("apollo-server-express");
+const path = require("path");
+const { authMiddleware } = require("./utils/auth");
 
-const { typeDefs, resolvers } = require('./schemas');
-const db = require('./config/connection');
+const { typeDefs, resolvers } = require("./schemas");
+const db = require("./config/connection");
 
-const apiKey = process.env.REACT_APP_API_KEY;
 const PORT = process.env.PORT || 3001;
 const app = express();
 const cors = require("cors");
 const axios = require("axios");
 require("dotenv").config();
 app.use(cors());
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const server = new ApolloServer({
   typeDefs,
@@ -31,12 +32,14 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
+//not getting response
 app.get("/APOD", async (req, res) => {
-  const response = await axios.get(
-    `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
-  );
-  const data = response.data;
-  return data;
+  // const response = await axios.get(
+  //   `https://api.nasa.gov/planetary/apod?api_key=huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben`
+  // );
+  // const data = response.data;
+  // return data;
+  console.log("hitting /APOD route");
 });
 
 app.get("/mars", (req, res) => {
@@ -65,14 +68,16 @@ app.get("/tech", (req, res) => {
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   server.applyMiddleware({ app });
-  
-  db.once('open', () => {
+
+  db.once("open", () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
-      console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
-    })
-  })
-  };
-  
+      console.log(
+        `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
+      );
+    });
+  });
+};
+
 // Call the async function to start the server
-  startApolloServer(typeDefs, resolvers);
+startApolloServer(typeDefs, resolvers);

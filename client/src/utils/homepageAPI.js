@@ -3,23 +3,28 @@ import axios from "axios";
 const apiKey = "huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben";
 
 export async function apodCall() {
-  // const [pictures, setPictures] = useState(null);
-  // try {
-  //   useEffect(() => {
-  //     const response = axios.get("http://localhost:3000/APOD");
-  //     const data = response.data;
-  //     return data;
-  //   });
-  // const response = await axios.get("http://localhost:3000/APOD");
-  // const data = response.data;
-  // const explanation = data.explanation;
-  // const photo = data.url;
-  // localStorage.setItem("photo_explanation", explanation);
-  // localStorage.setItem("photo_today", photo);
-  // return data;
-  // } catch (error) {
-  //   console.error(error);
-  // }
+  try {
+    const response = await axios.get(
+      "https://api.nasa.gov/planetary/apod?api_key=huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben"
+    );
+    return response.data;
+    // const [pictures, setPictures] = useState(null);
+    // try {
+    //   useEffect(() => {
+    //     const response = axios.get("http://localhost:3000/APOD");
+    //     const data = response.data;
+    //     return data;
+    //   });
+    // const response = await axios.get("http://localhost:3000/APOD");
+    // const data = response.data;
+    // const explanation = data.explanation;
+    // const photo = data.url;
+    // localStorage.setItem("photo_explanation", explanation);
+    // localStorage.setItem("photo_today", photo);
+    // return data;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 export async function marsCall() {
