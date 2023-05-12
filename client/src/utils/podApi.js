@@ -17,7 +17,9 @@ let searchButton = document.querySelector("#search");
 
 async function sendPODApiRequest() {
   try {
-    const response = await axios.get("http://localhost:3000/APOD");
+    const response = await axios.get(
+      "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1"
+    );
     const data = response.data;
 
     //log all the data
