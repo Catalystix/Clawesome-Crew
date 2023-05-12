@@ -61,8 +61,8 @@ export default function CosmosContainer() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
-                <Route path="/me" element={<Profile />} />
-                <Route path="/profiles/:username" element={<Profile />} />
+                <Route path="/me" element={<Favorites />} />
+                
                 <Route path="/landing" element={<Landing />} />
                 <Route path="/APOD" element={<ApodDisplay />} />
                 <Route path="/mars" element={<MarsDisplay />} />
