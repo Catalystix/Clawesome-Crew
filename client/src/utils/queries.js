@@ -8,7 +8,7 @@ export const QUERY_USER = gql`
       email
       articles {
         _id
-        articleText
+        description
         createdAt
       }
     }
@@ -19,7 +19,7 @@ export const QUERY_ARTICLES = gql`
   query getArticles {
     articles {
       _id
-      articleText
+      description
       articleAuthor
       createdAt
     }
@@ -30,7 +30,7 @@ export const QUERY_SINGLE_ARTICLE = gql`
   query getSingleArticle($articleId: ID!) {
     article(articleId: $articleId) {
       _id
-      articleText
+      description
       articleAuthor
       createdAt
       comments {
@@ -43,6 +43,14 @@ export const QUERY_SINGLE_ARTICLE = gql`
   }
 `;
 
+export const GET_IMAGE = gql`
+query image {
+    url
+    name
+  
+}
+`;
+
 export const QUERY_ME = gql`
   query me {
     me {
@@ -51,7 +59,7 @@ export const QUERY_ME = gql`
       email
       articles {
         _id
-        articleText
+        description
         articleAuthor
         createdAt
       }
