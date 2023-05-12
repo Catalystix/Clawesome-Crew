@@ -28,7 +28,7 @@
 
 # Description
 
-The Daily Clawsmic interacts with various NASA APIs to showcase a picture of the day, provide many Mars Rover (Curiosity) photos, and supplies articles and links for NASA-developed technologies, available for commercial and non-commerical use. Their, you'll find information such as titles, summaries, categories, and patent information!
+The Daily Clawsmic interacts with various NASA APIs to showcase a picture of the day, provide many Mars Rover (Curiosity) photos, and supplies articles and links for NASA-developed technologies, available for commercial and non-commerical use. There, you'll find information such as titles, summaries, categories, and patent information!
 
 With this web application the user has the ability to sign up and login in order to save favorites. Those favorites will stay on on the user's personalized dashboard until they're ready to discard them. That way, following all one's space needs (cats included) is as easy as one click of a button.
 
