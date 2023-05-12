@@ -4,9 +4,7 @@ const apiKey = "huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben";
 
 export async function apodCall() {
   try {
-    const response = await axios.get(
-      `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
-    );
+    const response = await axios.get(`http://localhost:3001/APOD`);
     return response.data;
     // const [pictures, setPictures] = useState(null);
     // try {

@@ -4,7 +4,7 @@ import { QUERY_ME } from "../../utils/queries";
 
 import { Segment, Grid, Image } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
-import { Article } from "../../../../server/models";
+//import { Article } from "../../../../server/models";
 
 
 export default function Favorites() {
