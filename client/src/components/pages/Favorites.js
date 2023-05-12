@@ -4,7 +4,7 @@ import { QUERY_ME } from "../../utils/queries";
 
 import { Segment, Grid, Image } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
-import { Article } from "../../../../server/models";
+
 
 
 export default function Favorites() {
@@ -31,9 +31,11 @@ export default function Favorites() {
             {user?.images.map((image)=>(
               <Image key={image._id} src={image.url} />
             ))}
-            {}
+            {user?.articles.map((articles)=>(
+              <Image key={articles._id} src={articles.description} />
 
-            
+            ))}
+
         </Segment>
       </div>
       )}
