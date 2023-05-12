@@ -1,7 +1,9 @@
 {
   "name": "clawesome-crew",
   "version": "1.0.0",
-  "node": "16",
+  "engines": {
+    "node": "16"
+    },
   "description": "[![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://lbesson.mit-license.org/)",
   "main": "index.js",
   "scripts": {
