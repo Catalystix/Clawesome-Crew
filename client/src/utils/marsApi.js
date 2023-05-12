@@ -17,9 +17,7 @@ let searchButton = document.querySelector("#search");
 
 async function sendMarsApiRequest() {
   try {
-    const response = await axios.get(
-      `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1&api_key=${apiKey}`
-    );
+    const response = await axios.get("http://localhost:3000/mars");
 
     // pull all data
     const data = response.data;

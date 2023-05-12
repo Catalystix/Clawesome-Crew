@@ -30,11 +30,36 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-app.get("/", (req, res) => {
+app.get("/APOD", (req, res) => {
   const options = {
     method: "GET",
-    url: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1&api_key={}",
-    headers: {},
+    url: "https://api.nasa.gov/planetary/apod",
+    headers: {
+      "x-nasa-host": "api.nasa.gov",
+      "x-nasa-key": process.env.REACT_APP_API_KEY,
+    },
+  };
+});
+
+app.get("/mars", (req, res) => {
+  const options = {
+    method: "GET",
+    url: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1",
+    headers: {
+      "x-nasa-host": "api.nasa.gov",
+      "x-nasa-key": process.env.REACT_APP_API_KEY,
+    },
+  };
+});
+
+app.get("/tech", (req, res) => {
+  const options = {
+    method: "GET",
+    url: "https://api.nasa.gov/techtransfer/patent/?engine",
+    headers: {
+      "x-nasa-host": "api.nasa.gov",
+      "x-nasa-key": process.env.REACT_APP_API_KEY,
+    },
   };
 });
 
