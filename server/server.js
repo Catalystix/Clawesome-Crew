@@ -37,41 +37,20 @@ app.get("/APOD", async (req, res) => {
   const response = await axios.get(
     `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
   );
-  console.log(response.data);
   res.send(response.data);
 });
 
 app.get("/mars", async (req, res) => {
-  // const options = {
-  //   method: "GET",
-  //   url: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1",
-  //   headers: {
-  //     "x-nasa-host": "api.nasa.gov",
-  //     "x-nasa-key": "process.env.REACT_APP_API_KEY",
-  //   },
-  // };
-  // console.log(options);
-  // res.send(options);
   const response = await axios.get(
-    "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1&api_key=MxhQtdOQo4057bQmauxgjMkK7jcdbyB7ceB3CHyK"
+    `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1&api_key=${apiKey}`
   );
-  console.log(response.data);
   res.send(response.data);
 });
 
 app.get("/tech", async (req, res) => {
-  // const options = {
-  //   method: "GET",
-  //   url: "https://api.nasa.gov/techtransfer/patent/?engine",
-  //   headers: {
-  //     "x-nasa-host": "api.nasa.gov",
-  //     "x-nasa-key": process.env.REACT_APP_API_KEY,
-  //   },
-  // };
   const response = await axios.get(
-    "https://api.nasa.gov/techtransfer/patent/?engine&api_key=MxhQtdOQo4057bQmauxgjMkK7jcdbyB7ceB3CHyK"
+    `https://api.nasa.gov/techtransfer/patent/?engine&api_key=${apiKey}`
   );
-  console.log(response.data);
   res.send(response.data);
 });
 
