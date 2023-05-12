@@ -29,7 +29,7 @@ const Header = () => {
         <h1>The Daily Clawsmic</h1>
         {Auth.loggedIn() ? (
           <>
-            <Menu pointing secondary size="large">
+            <Menu pointing secondary size="large" style={{ border: "none"}}>
               <Menu.Item
                 as={Link}
                 to="/APOD"
