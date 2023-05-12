@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { ADD_IMAGE, ADD_ARTICLE } from "../../utils/mutations";
 import { apodCall } from "../../utils/homepageAPI";
+import axios from "axios";
 import { Segment, Grid, Image, Button, Divider } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
 
@@ -16,8 +17,9 @@ const ApodDisplay = () => {
   const [addImage, { error }] = useMutation(ADD_IMAGE);
   const [pod, setPod] = useState({});
   useEffect(async () => {
-    const data = await apodCall();
-    console.log("podAPI", data);
+    const response = axios.get("http://localhost:3000/APOD");
+    const data = response.data;
+    console.log("apod data", data);
     setPod(data);
   }, []);
   // const photo = localStorage.getItem("photo_today");
