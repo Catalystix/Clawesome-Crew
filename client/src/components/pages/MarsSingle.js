@@ -5,13 +5,6 @@ import { ADD_IMAGE, ADD_ARTICLE } from "../../utils/mutations";
 import { Segment, Grid, Image, Card, Button, Divider } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 
-// const styles = {
-//   img: {
-//     maxHeight: "200px",
-//     maxWidth: "200px",
-//   },
-// };
-
 const MarsDisplay = () => {
   const [addImage, { error }] = useMutation(ADD_IMAGE);
   const [mars, setMars] = useState([]);
@@ -28,6 +21,7 @@ const MarsDisplay = () => {
     });
   }
 
+  //is there a way to only display one random photo untl the user clicks 'Mars Search' -HOPE
   return (
     <div style={{ backgroundColor: "#1f2833" }}>
       <Segment basic>
