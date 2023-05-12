@@ -15,6 +15,7 @@ const ApodDisplay = () => {
     setPod(data);
   }, []);
 
+  // 'photo' is logging! not sure if it's being saved to database and is not being rendered in favorites
   async function savePhoto(photo) {
     console.log("photo", photo);
     const { data } = await addImage({
