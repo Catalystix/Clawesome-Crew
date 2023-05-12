@@ -26,6 +26,7 @@ const Header = () => {
             className="left floated"
           />
         </Link>
+        <h1>The Daily Clawsmic</h1>
         {Auth.loggedIn() ? (
           <>
             <Menu pointing secondary size="large">
