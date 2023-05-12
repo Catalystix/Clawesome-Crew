@@ -41,7 +41,6 @@ export async function marsCall() {
 }
 
 export async function techCall() {
-  // hope's api key
   try {
     const response = await axios.get(
       `https://api.nasa.gov/techtransfer/patent/?engine&api_key=${apiKey}`

@@ -32,36 +32,47 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-//not getting response
+// these routes currently return a 'raw' version of the data that should be displaying on the front end -HOPE
 app.get("/APOD", async (req, res) => {
-  // const response = await axios.get(
-  //   `https://api.nasa.gov/planetary/apod?api_key=huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben`
-  // );
-  // const data = response.data;
-  // return data;
-  console.log("hitting /APOD route");
+  const response = await axios.get(
+    `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
+  );
+  console.log(response.data);
+  res.send(response.data);
 });
 
-app.get("/mars", (req, res) => {
-  const options = {
-    method: "GET",
-    url: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1",
-    headers: {
-      "x-nasa-host": "api.nasa.gov",
-      "x-nasa-key": process.env.REACT_APP_API_KEY,
-    },
-  };
+app.get("/mars", async (req, res) => {
+  // const options = {
+  //   method: "GET",
+  //   url: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1",
+  //   headers: {
+  //     "x-nasa-host": "api.nasa.gov",
+  //     "x-nasa-key": "process.env.REACT_APP_API_KEY",
+  //   },
+  // };
+  // console.log(options);
+  // res.send(options);
+  const response = await axios.get(
+    "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1&api_key=MxhQtdOQo4057bQmauxgjMkK7jcdbyB7ceB3CHyK"
+  );
+  console.log(response.data);
+  res.send(response.data);
 });
 
-app.get("/tech", (req, res) => {
-  const options = {
-    method: "GET",
-    url: "https://api.nasa.gov/techtransfer/patent/?engine",
-    headers: {
-      "x-nasa-host": "api.nasa.gov",
-      "x-nasa-key": process.env.REACT_APP_API_KEY,
-    },
-  };
+app.get("/tech", async (req, res) => {
+  // const options = {
+  //   method: "GET",
+  //   url: "https://api.nasa.gov/techtransfer/patent/?engine",
+  //   headers: {
+  //     "x-nasa-host": "api.nasa.gov",
+  //     "x-nasa-key": process.env.REACT_APP_API_KEY,
+  //   },
+  // };
+  const response = await axios.get(
+    "https://api.nasa.gov/techtransfer/patent/?engine&api_key=MxhQtdOQo4057bQmauxgjMkK7jcdbyB7ceB3CHyK"
+  );
+  console.log(response.data);
+  res.send(response.data);
 });
 
 // Create a new instance of an Apollo server with the GraphQL schema
@@ -71,7 +82,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
 
   db.once("open", () => {
     app.listen(PORT, () => {
-      console.log(`API server running on port ${PORT}!`);
+      console.log(`API server running on port 3000!`);
       console.log(
         `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
       );
