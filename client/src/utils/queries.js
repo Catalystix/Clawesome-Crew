@@ -57,11 +57,17 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      articles {
+      articles
+       {
         _id
         description
         articleAuthor
         createdAt
+      }
+      images {
+        _id
+        url
+        name
       }
     }
   }

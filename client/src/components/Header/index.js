@@ -13,7 +13,10 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <Grid columns={2} padded style={{ backgroundColor: "#45a29e" }}>
+    <div style={{ backgroundColor: "#1f2833" }}>
+    <Segment basic>
+    <div className="ui padded segment" style={{ backgroundColor: "#45a29e" }}>
+    <Grid columns={2} padded>
       <Grid.Column>
         <Link to="/">
           <Image
@@ -23,9 +26,10 @@ const Header = () => {
             className="left floated"
           />
         </Link>
+        <h1>The Daily Clawsmic</h1>
         {Auth.loggedIn() ? (
           <>
-            <Menu pointing secondary size="large">
+            <Menu pointing secondary size="large" style={{ border: "none"}}>
               <Menu.Item
                 as={Link}
                 to="/APOD"
@@ -68,14 +72,14 @@ const Header = () => {
       </Grid.Column>
       <Grid.Column verticalAlign="right" textAlign="middle">
         <Grid.Row></Grid.Row>
-        <Grid.Row>
+        <Grid.Row style={{ }}>
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/me">
-                {Auth.getProfile().data.username}'s profile
+              <Link className="btn btn-lg btn-info m-2" to="/me" style={{ color: "white"}} >
+                {Auth.getProfile().data.username}'s profile  
               </Link>
               <Button
-                style={{ background: "#1f2833", color: "white" }}
+                style={{ background: "#1f2833", color: "white", marginLeft: "1em" }}
                 className="btn btn-lg btn-light m-2"
                 onClick={logout}
               >
@@ -100,6 +104,9 @@ const Header = () => {
         <Grid.Row></Grid.Row>
       </Grid.Column>
     </Grid>
+    </div>
+    </Segment>
+  </div>
   );
 };
 
