@@ -2,26 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { ADD_IMAGE, ADD_ARTICLE } from "../../utils/mutations";
 import { apodCall } from "../../utils/homepageAPI";
-import axios from "axios";
+import "axios";
 import { Segment, Grid, Image, Button, Divider } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
-
-const styles = {
-  img: {
-    maxHeight: "200px",
-    maxWidth: "200px",
-  },
-};
 
 const ApodDisplay = () => {
   const [addImage, { error }] = useMutation(ADD_IMAGE);
   const [pod, setPod] = useState({});
   useEffect(async () => {
     const data = await apodCall();
-    // const response = await axios.get(
-    //   "https://api.nasa.gov/planetary/apod?api_key=huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben"
-    // );
-
     console.log("apod data", data);
     setPod(data);
   }, []);

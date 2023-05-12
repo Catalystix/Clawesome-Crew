@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-//getting response on port 3001
+//not getting response
 app.get("/APOD", async (req, res) => {
   // const response = await axios.get(
   //   `https://api.nasa.gov/planetary/apod?api_key=huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben`
