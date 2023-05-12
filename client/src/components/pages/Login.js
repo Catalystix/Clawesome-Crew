@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
+import { Segment, Grid, Image, Card, Button, Divider, Form } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
 
 import Auth from "../../utils/auth";
@@ -42,53 +43,52 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head{" "}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
+    <Grid centered columns={2}>
+      <Grid.Column>
+        <Segment raised bordered>
+          <Card.Header style={{fontSize: '20px'}}>Login</Card.Header>
+          <Divider />
+          {data ? (
+            <p>
+              Success! You may now head{" "}
+              <Link to="/">back to the homepage.</Link>
+            </p>
+          ) : (
+            <Form onSubmit={handleFormSubmit}>
+              <Form.Field>
+                <label>Email</label>
                 <input
-                  className="form-input"
                   placeholder="Your email"
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
+              </Form.Field>
+              <Form.Field>
+                <label>Password</label>
                 <input
-                  className="form-input"
                   placeholder="******"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: "pointer" }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
+              </Form.Field>
+              <Button style={{ backgroundColor: "#45a29e" }} type="submit" primary fluid>
+                Submit
+              </Button>
+            </Form>
+          )}
 
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </main>
+          {error && (
+            <div className="my-3 p-3 bg-danger text-white">
+              {error.message}
+            </div>
+          )}
+        </Segment>
+      </Grid.Column>
+    </Grid>
   );
 };
 
