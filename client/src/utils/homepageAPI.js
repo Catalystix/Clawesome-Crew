@@ -5,7 +5,7 @@ const apiKey = "huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben";
 export async function apodCall() {
   try {
     const response = await axios.get(
-      "https://api.nasa.gov/planetary/apod?api_key=huGQeej7axeAR780FAY6PpPXzLNl8sO1kwknGben"
+      `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
     );
     return response.data;
     // const [pictures, setPictures] = useState(null);
@@ -34,29 +34,7 @@ export async function marsCall() {
       `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1&api_key=${apiKey}`
     );
 
-    // pull all data
-    const data = response.data;
-
-    const photos = data.photos;
-    const randomIndex = Math.floor(Math.random() * photos.length);
-    const randomPhoto = photos[randomIndex];
-
-    const roverName = randomPhoto.rover.name;
-    const roverStatus = randomPhoto.rover.status;
-    const photoUrl = randomPhoto.img_src;
-
-    localStorage.setItem("rover_name", roverName);
-
-    // steal rover status
-    // console.log(`Rover status: ${roverStatus}`);
-    localStorage.setItem("status", roverStatus);
-
-    // steal photo URL
-    // console.log(`Photo URL: ${photoUrl}`);
-    localStorage.setItem("mars photo", photoUrl);
-
-    // catch errors
-    return data;
+    return response.data;
   } catch (error) {
     console.error(error);
   }
