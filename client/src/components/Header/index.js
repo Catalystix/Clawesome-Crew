@@ -75,9 +75,16 @@ const Header = () => {
         <Grid.Row style={{ }}>
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/me" style={{ color: "white"}} >
+              {/* <Link className="btn btn-lg btn-info m-2" to="/me" style={{ color: "white"}} >
                 {Auth.getProfile().data.username}'s profile  
-              </Link>
+              </Link> */}
+              <Button 
+                  as={Link}
+                  to="/me"
+                  style={{ background: "#1f2833", color: "white"}}
+                >
+                  {Auth.getProfile().data.username}'s profile
+                </Button>
               <Button
                 style={{ background: "#1f2833", color: "white", marginLeft: "1em" }}
                 className="btn btn-lg btn-light m-2"
