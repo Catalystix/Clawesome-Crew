@@ -60,10 +60,9 @@ const MarsDisplay = () => {
                     </Card.Content>
                     <Card.Content extra>
                       <div className="ui two buttons">
-                        <Button
-                          color="red"
-                          content="Save"
-                          icon="heart"
+                        <Button style={{backgroundColor: "#ffa500", color: "#ffffff"}}
+                          content="Add to Favorites"
+                          icon="star"
                           data-img={mars.img_src}
                           data-name={mars.rover.name}
                           onClick={(e) =>

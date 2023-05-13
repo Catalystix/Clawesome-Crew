@@ -74,10 +74,9 @@ const TechDisplay = () => {
                     </Card.Content>
                     <Card.Content extra textAlign="center">
                       <div className="ui two buttons">
-                        <Button
-                          color="red"
-                          content="Save"
-                          icon="heart"
+                        <Button style={{backgroundColor: "#ffa500", color: "#ffffff"}}
+                          content="Add to Favorites"
+                          icon="star"
                           data-url={article[1]}
                           data-img={article[10]}
                           data-description={article[3]}
