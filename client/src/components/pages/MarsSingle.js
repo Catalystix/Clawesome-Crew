@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { marsCall } from "../../utils/homepageAPI";
 import { useQuery, useMutation } from "@apollo/client";
 import { ADD_IMAGE, ADD_ARTICLE } from "../../utils/mutations";
 import { Segment, Grid, Image, Card, Button, Divider } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
+import axios from "axios";
 
 const MarsDisplay = () => {
+  const marsTest = async () => {
+    const response = await axios.get(`/mars`);
+    return response.data;
+  };
   const [addImage, { error }] = useMutation(ADD_IMAGE);
   const [mars, setMars] = useState([]);
   useEffect(async () => {
-    const data = await marsCall();
+    const data = await marsTest();
     console.log("mars data", data.photos);
     setMars(data.photos);
   }, []);
@@ -37,7 +41,7 @@ const MarsDisplay = () => {
               color="teal"
               className="ui very padded"
               onClick={async () => {
-                const data = await marsCall();
+                const data = await marsTest();
                 console.log("data", data);
                 setMars(data.photos);
               }}

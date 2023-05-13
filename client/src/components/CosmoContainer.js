@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import NavTabs from "./NavTabs";
 import Header from "./Header/index";
 import Footer from "./Footer/index";
 import ApodDisplay from "./pages/APODSingle";
@@ -8,11 +7,9 @@ import TechDisplay from "./pages/TechDisplay";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import SingleArticle from "./pages/SingleArticle";
 import Profile from "./pages/Profile";
 import Favorites from "./pages/Favorites";
 import Landing from "./pages/Landing";
-import ArticleList from "./ArticleList";
 import CSS from "./style.css";
 
 import {
@@ -60,24 +57,17 @@ export default function CosmosContainer() {
           <div className="flex-column justify-flex-start min-100-vh">
             <Header />
             <div className="container">
-              <div className="container">
-                <NavTabs />
-              </div>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
-                <Route path="/me" element={<Profile />} />
-                <Route path="/profiles/:username" element={<Profile />} />
+                <Route path="/me" element={<Favorites />} />
+                
                 <Route path="/landing" element={<Landing />} />
                 <Route path="/APOD" element={<ApodDisplay />} />
                 <Route path="/mars" element={<MarsDisplay />} />
                 <Route path="/tech" element={<TechDisplay />} />
                 <Route path="/favorites" element={<Favorites />} />
-                <Route
-                  path="/articles/:articleId"
-                  element={<SingleArticle />}
-                />
               </Routes>
             </div>
             <Footer />
