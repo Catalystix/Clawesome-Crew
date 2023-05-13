@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery, gql } from '@apollo/client';
 import { QUERY_ME } from "../../utils/queries";
 
-import { Segment, Grid, Image, Card } from "semantic-ui-react";
+import { Segment, Image, Card, Icon } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
 
 
@@ -26,6 +26,12 @@ export default function Favorites() {
               {user?.images.map((image) => (
                 <Card raised key={image._id} style={{backgroundColor: "#1f2833",  boxShadow: "none"}}>
                   <Image src={image.url} />
+                  <Icon circular inverted 
+                    name="delete"
+                    color="red"
+                    size="small"
+                    // onClick={() => handleDelete(image._id)}
+                  />
                 </Card>
               ))}
             </Card.Group>
