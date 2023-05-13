@@ -59,9 +59,11 @@ const ApodDisplay = () => {
                 bordered
               ></Image>
               <Divider />
-              <Button style={{backgroundColor: "#ffa500", color: "#ffffff"}}
+              <Button 
+                style={{backgroundColor: "#ffa500", color: "#ffffff"}}
                 content="Add to Favorites"
                 icon="star"
+                hovered={true}
                 data-img={pod?.hdurl}
                 data-name={pod?.title}
                 onClick={(e) =>
