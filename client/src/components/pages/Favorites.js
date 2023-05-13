@@ -28,12 +28,12 @@ export default function Favorites() {
                   <Image src={image.url} />
                 </Card>
               ))}
+            </Card.Group>
 
               {user?.articles.map((articles) => (
                 <Image key={articles._id} src={articles.description} />
 
               ))}
-            </Card.Group>
           </Segment>
         </div>
       )}
