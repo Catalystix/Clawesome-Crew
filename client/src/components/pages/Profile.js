@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { Segment, Grid, Image } from "semantic-ui-react";
+import { Segment } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
 
 import ArticleList from "../ArticleList";

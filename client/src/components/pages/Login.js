@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
-import { Segment, Grid, Image, Card, Button, Divider, Form } from "semantic-ui-react";
+import { Segment, Grid, Card, Button, Divider, Form } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
 
 import Auth from "../../utils/auth";
