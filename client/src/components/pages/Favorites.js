@@ -31,7 +31,7 @@ export default function Favorites() {
             </Card.Group>
 
               {user?.articles.map((articles) => (
-                <Image key={articles._id} src={articles.description} />
+                <div key={articles._id} src={articles.description} />
 
               ))}
           </Segment>
