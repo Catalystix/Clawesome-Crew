@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu } from "semantic-ui-react";
 import { Segment, Grid, Image, Button } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
@@ -8,12 +8,21 @@ import logoImg from "../../assets/catlogo.png";
 import Auth from "../../utils/auth";
 
 const Header = () => {
+  const [currentPage, setCurrentPage] = useState('');
+  const location = useLocation();
+
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
+
+  // Set the current page based on the location object
+  React.useEffect(() => {
+    setCurrentPage(location.pathname);
+  }, [location]);
+
   return (
-    <div style={{ backgroundColor: "#1f2833" }}>
+    <div style={{ backgroundColor: "#v" }}>
     <Segment basic>
     <div className="ui padded segment" style={{ backgroundColor: "#45a29e" }}>
     <Grid columns={2} padded>
@@ -35,7 +44,8 @@ const Header = () => {
                 to="/APOD"
                 name="Pic of the Day"
                 style={{
-                  color: "#564f6f",
+                  color: currentPage === '/APOD' ? "#66fcf1" : '#564f6f',
+                  borderBottom: currentPage === '/APOD' ? '2px solid #66fcf1' : '',
                 }}
               />
               <Menu.Item
@@ -43,7 +53,8 @@ const Header = () => {
                 as={Link}
                 to="/mars"
                 style={{
-                  color: "#564f6f",
+                  color: currentPage === '/mars' ? "#66fcf1" : '#564f6f',
+                  borderBottom: currentPage === '/mars' ? '2px solid #66fcf1' : '',
                 }}
               />
               <Menu.Item
@@ -51,7 +62,8 @@ const Header = () => {
                 as={Link}
                 to="/tech"
                 style={{
-                  color: "#564f6f",
+                  color: currentPage === '/tech' ? "#66fcf1" : '#564f6f',
+                  borderBottom: currentPage === '/tech' ? '2px solid #66fcf1' : '',
                 }}
               />
               <Menu.Item
@@ -59,7 +71,8 @@ const Header = () => {
                 as={Link}
                 to="/favorites"
                 style={{
-                  color: "#564f6f",
+                  color: currentPage === '/favorites' ? "#66fcf1" : '#564f6f',
+                  borderBottom: currentPage === '/favorites' ? '2px solid #66fcf1' : '',
                 }}
               />
             </Menu>

@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery, gql } from '@apollo/client';
 import { QUERY_ME } from "../../utils/queries";
 
-import { Segment, Grid, Image, Card } from "semantic-ui-react";
+import { Segment, Image, Card, Icon } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
 
 
@@ -22,10 +22,16 @@ export default function Favorites() {
             <div className="ui padded segment" style={{ backgroundColor: "#1f2833", textAlign: "center" }}>
               <h2>Favorites</h2>
             </div>
-            <Card.Group itemsPerRow={5}>
+            <Card.Group itemsPerRow={5} >
               {user?.images.map((image) => (
-                <Card key={image._id}>
+                <Card raised key={image._id} style={{backgroundColor: "#1f2833",  boxShadow: "none"}}>
                   <Image src={image.url} />
+                  <Icon circular inverted 
+                    name="delete"
+                    color="red"
+                    size="small"
+                    // onClick={() => handleDelete(image._id)}
+                  />
                 </Card>
               ))}
             </Card.Group>

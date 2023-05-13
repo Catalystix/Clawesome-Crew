@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_ARTICLE } from "../../utils/mutations";
-import { Segment, Grid, Image, Card, Button, Divider } from "semantic-ui-react";
+import { Segment, Image, Card, Button, Divider } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import axios from "axios";
 
