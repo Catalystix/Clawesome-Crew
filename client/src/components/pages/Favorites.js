@@ -22,9 +22,9 @@ export default function Favorites() {
             <div className="ui padded segment" style={{ backgroundColor: "#1f2833", textAlign: "center" }}>
               <h2>Favorites</h2>
             </div>
-            <Card.Group itemsPerRow={5}>
+            <Card.Group itemsPerRow={5} >
               {user?.images.map((image) => (
-                <Card key={image._id}>
+                <Card raised key={image._id} style={{backgroundColor: "#1f2833",  boxShadow: "none"}}>
                   <Image src={image.url} />
                 </Card>
               ))}
