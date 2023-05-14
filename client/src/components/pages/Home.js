@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "semantic-ui-css/semantic.min.css";
+import { Card, Image, Segment, Button, Divider } from "semantic-ui-react";
 import axios from "axios";
 
 const Home = () => {
@@ -43,25 +44,53 @@ const Home = () => {
   };
 
   return (
-    <div id="carousel">
-      <div id="imgDiv">
-        {photoSlide.map((slide, index) => (
-          <div
-            className={`slide ${index === currentIndex ? "active" : ""}`}
-            key={index}
-          >
-            {index === currentIndex && <img src={slide.url} alt={slide.name} />}
-          </div>
-        ))}
-      </div>
-      <div>
-        <button className="prev" onClick={prevSlide}>
-          Prev
-        </button>
-        <button className="next" onClick={nextSlide}>
-          Next
-        </button>
-      </div>
+    <div style={{ backgroundColor: "#1f2833" }}>
+      <Segment basic>
+        <div
+          className="ui padded segment"
+          style={{ backgroundColor: "#1f2833" }}
+        >
+          <Card fluid style={{ backgroundColor: "#1f2833", boxShadow: "none" }}>
+            <Card.Content style={{ display: "flex", justifyContent: "center" }}>
+              <div id="carousel">
+                <div id="imgDiv">
+                  {photoSlide.map((slide, index) => (
+                    <div
+                      className={`slide ${
+                        index === currentIndex ? "active" : ""
+                      }`}
+                      key={index}
+                    >
+                      {index === currentIndex && (
+                        <Image src={slide.url} alt={slide.name} size="large" />
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <Divider />
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                  <Button
+                    inverted
+                    color="teal"
+                    className="prev"
+                    onClick={prevSlide}
+                  >
+                    Prev
+                  </Button>
+                  <Button
+                    inverted
+                    color="teal"
+                    className="next"
+                    onClick={nextSlide}
+                  >
+                    Next
+                  </Button>
+                </div>
+              </div>
+            </Card.Content>
+          </Card>
+        </div>
+      </Segment>
     </div>
   );
 };
