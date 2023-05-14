@@ -4,17 +4,29 @@ const dateFormat = require('../utils/dateFormat');
 const articleSchema = new Schema({
   description: {
     type: String,
-    
+
     trim: true,
   },
-  image:{
-    
+  title: {
+    type: String
+  },
+  
+  image: {
+    type: String
+  },
+  user_id: {
+    type: Schema.ObjectId,
+    ref: 'User'
+  },
+  url: {
+    type: String
   },
   articleAuthor: {
     type: String,
     required: true,
     trim: true,
   },
+ 
   createdAt: {
     type: Date,
     default: Date.now,

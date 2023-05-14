@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "engines": {
     "node": "16"
-    },
+  },
   "description": "[![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://lbesson.mit-license.org/)",
   "main": "index.js",
   "scripts": {
@@ -25,8 +25,8 @@
   },
   "homepage": "https://github.com/Catalystix/Clawesome-Crew#readme",
   "dependencies": {
-    "concurrently": "^8.0.1"
+    "concurrently": "^8.0.1",
+    "react": "^18.2.0",
+    "scripts": "^0.1.0"
   }
-  
-  
 }

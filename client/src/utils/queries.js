@@ -19,6 +19,9 @@ export const QUERY_ARTICLES = gql`
   query getArticles {
     articles {
       _id
+      title
+      url
+      image
       description
       articleAuthor
       createdAt
@@ -30,7 +33,10 @@ export const QUERY_SINGLE_ARTICLE = gql`
   query getSingleArticle($articleId: ID!) {
     article(articleId: $articleId) {
       _id
+      url
+      image
       description
+      title
       articleAuthor
       createdAt
       comments {
@@ -60,6 +66,9 @@ export const QUERY_ME = gql`
       articles
        {
         _id
+        url
+        title
+        image
         description
         articleAuthor
         createdAt
