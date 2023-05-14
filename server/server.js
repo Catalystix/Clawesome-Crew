@@ -32,7 +32,6 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-//not getting response
 app.get("/APOD", async (req, res) => {
   const response = await axios.get(
     `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
@@ -50,6 +49,13 @@ app.get("/mars", async (req, res) => {
 app.get("/tech", async (req, res) => {
   const response = await axios.get(
     `https://api.nasa.gov/techtransfer/patent/?engine&api_key=${apiKey}`
+  );
+  res.send(response.data);
+});
+
+app.get("/landing", async (req, res) => {
+  const response = await axios.get(
+    `https://api.nasa.gov/planetary/apod?count=7&api_key=${apiKey}`
   );
   res.send(response.data);
 });
