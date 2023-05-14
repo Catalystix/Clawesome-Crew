@@ -44,10 +44,13 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_ARTICLE = gql`
-  mutation addArticle($description: String!) {
-    addArticle(description: $description) {
+  mutation addArticle($description: String!, $url: String!, $image: String!, $title: String!) {
+    addArticle(description: $description, url: $url, image: $image, title: $title) {
       _id
       description
+      image
+      url
+      title
       articleAuthor
       createdAt
       comments {

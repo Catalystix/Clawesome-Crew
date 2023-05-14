@@ -77,14 +77,16 @@ const TechDisplay = () => {
                         <Button style={{backgroundColor: "#ffa500", color: "#ffffff"}}
                           content="Add to Favorites"
                           icon="star"
+                          data-title={article[2]}
                           data-url={article[1]}
                           data-img={article[10]}
                           data-description={article[3]}
                           onClick={(e) => {
                             e.preventDefault();
                             saveArticle({
+                              title: e.target.dataset.title,
                               url: e.target.dataset.url,
-                              img: e.target.dataset.img,
+                              image: e.target.dataset.img,
                               description: e.target.dataset.description,
                             });
                           }}
