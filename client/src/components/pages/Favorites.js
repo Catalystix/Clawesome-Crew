@@ -24,14 +24,14 @@ export default function Favorites() {
             </div>
             <Card.Group itemsPerRow={5}>
               {user?.images.map((image) => (
-                <Card key={image._id}>
+                <Card key={image._id} style={{ backgroundColor: "#1f2833", boxShadow: "none"}}>
                   <Image src={image.url} />
                 </Card>
               ))}
 
 
               {user?.articles.map((article) => (
-                <Card key={article._id} style={{ backgroundColor: "#1f2833", boxShadow: "none" }}>
+                <Card key={article._id} style={{ backgroundColor: "#ffffff", boxShadow: "none" }}>
                   <Card.Content>
                     <Card.Header>{article.title}</Card.Header>
                     <Card.Description>{article.description}</Card.Description>
