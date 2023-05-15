@@ -27,7 +27,6 @@ mutation removeImage($imageId: ID!) {
     _id
     name
     url
-    description
   }
 }`
 
@@ -60,6 +59,24 @@ export const ADD_ARTICLE = gql`
     }
   }
 `;
+export const REMOVE_ARTICLE = gql`
+  mutation removeArticle($articleId: ID!) {
+    removeArticle(articleId: $articleId) {
+      _id
+      description
+      image
+      url
+      title
+      articleAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+      }
+    }
+  }
+`;
+
 
 export const ADD_COMMENT = gql`
   mutation addComment($articleId: ID!, $commentText: String!) {
