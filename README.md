@@ -98,16 +98,17 @@ REACT_APP_API_KEY=<YOUR_NASA_API_KEY>
 To see deployed site on Heroku, click here:
 
 ```
-[heroku link]
+https://cosmic-gallary.herokuapp.com/
 ```
+
+## Screenshots
+<img width="1443" alt="Screenshot 2023-05-15 at 6 23 19 PM" src="https://github.com/Catalystix/Clawesome-Crew/assets/115678318/ee06205b-4cdb-49dd-b8a1-fae15fa9f783">
+<img width="1424" alt="Screenshot 2023-05-15 at 6 24 57 PM" src="https://github.com/Catalystix/Clawesome-Crew/assets/115678318/9cfe4ff4-6120-476c-83a6-5b6f3e27573a">
+<img width="1413" alt="Screenshot 2023-05-15 at 6 25 25 PM" src="https://github.com/Catalystix/Clawesome-Crew/assets/115678318/4bc31c1c-f005-4d0e-8ab1-339ba3536a8e">
 
 ## Wireframe
 
 ![image_720](https://user-images.githubusercontent.com/118003612/235561033-dc74b3ba-cdbe-4a9b-a565-3aa6f12898f2.png)
-
-## Screenshots
-
-[Screenshots here]
 
 ## Authors (alphabetical)
 
