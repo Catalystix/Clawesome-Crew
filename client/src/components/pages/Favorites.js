@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import { useQuery, useMutation, gql } from '@apollo/client';
 import { QUERY_ME } from "../../utils/queries";
 
@@ -9,57 +9,68 @@ import { REMOVE_IMAGE, REMOVE_ARTICLE } from "../../utils/mutations";
 
 export default function Favorites() {
   const { loading, data } = useQuery(QUERY_ME);
-  const user = data?.me || [];
+  const user = data?.me || {};
 
+  const [toggle, setToggle] = useState(true);
   const [deleteArticle] = useMutation(REMOVE_ARTICLE, {
-    update(cache, { data: { deleteArticle } }) {
-      cache.modify({
-        fields: {
-          me(existingMeRef, { readField }) {
-            return {
-              ...existingMeRef,
-              articles: existingMeRef.articles.filter(
-                (articleRef) => deleteArticle._id !== readField('_id', articleRef)
-              )
-            };
-          }
-        }
-      });
-    }
+    refetchQueries: [{query:QUERY_ME}]
+    
+    // update(cache, { data: { deleteArticle } }) {
+    //   cache.modify({
+    //     fields: {
+    //       me(existingMeRef, { readField }) {
+    //         return {
+    //           ...existingMeRef,
+    //           articles: existingMeRef.articles.filter(
+    //             (articleRef) => deleteArticle._id !== readField('_id', articleRef)
+    //           )
+    //         };
+    //       }
+    //     }
+    //   });
+    // }
   });
 
   const [deleteImage] = useMutation(REMOVE_IMAGE, {
-    update(cache, { data: { deleteImage } }) {
-      cache.modify({
-        fields: {
-          me(existingMeRef, { readField }) {
-            return {
-              ...existingMeRef,
-              images: existingMeRef.images.filter(
-                (imageRef) => deleteImage._id !== readField('_id', imageRef)
-              )
-            };
-          }
-        }
-      });
-    }
+    refetchQueries: [{query:QUERY_ME}]
+    // update(cache, { data: { deleteImage } }) {
+    //   cache.modify({
+    //     fields: {
+    //       me(existingMeRef, { readField }) {
+    //         console.log(existingMeRef, "meref")
+    //         return {
+    //           ...existingMeRef,
+    //           images: existingMeRef.images.filter(
+    //             (imageRef) => deleteImage._id !== readField('_id', imageRef)
+    //           )
+    //         };
+    //       }
+    //     }
+    //   });
+    // }
   });
 
-  const handleDelete = (id, type) => {
+  const handleDelete = async (id, type) => {
     if (type === 'image') {
-      deleteImage({
+      await deleteImage({
         variables: { imageId: id },
       });
+      setToggle(!toggle);
+      // window.location.reload()
     } else if (type === 'article') {
-      deleteArticle({
+      await deleteArticle({
         variables: { articleId: id },
       });
+      setToggle(!toggle);
+      // window.location.reload()
     }
   };
 
+  
+
   return (
-    <>
-      {loading ? (
+    <> 
+      {(toggle || !toggle) && loading ? (
         <div>Loading</div>
       ) : (
         <div style={{ backgroundColor: "#1f2833" }}>
