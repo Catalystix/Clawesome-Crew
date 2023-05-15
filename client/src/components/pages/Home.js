@@ -45,6 +45,9 @@ const Home = () => {
 
   return (
     <div style={{ backgroundColor: "#1f2833" }}>
+      <div id="welcome">
+        <h1>Welcome to The Daily Clawsmic!</h1>
+      </div>
       <Segment basic>
         <div
           className="ui padded segment"
@@ -68,7 +71,9 @@ const Home = () => {
                   ))}
                 </div>
                 <Divider />
-                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <div
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
                   <Button
                     inverted
                     color="teal"
