@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { ADD_IMAGE, ADD_ARTICLE } from "../../utils/mutations";
+import { QUERY_ME } from "../../utils/queries";
 import { Segment, Image, Card, Button, Divider } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import axios from "axios";
@@ -10,7 +11,7 @@ const MarsDisplay = () => {
     const response = await axios.get(`/mars`);
     return response.data;
   };
-  const [addImage, { error }] = useMutation(ADD_IMAGE);
+  const [addImage, { error }] = useMutation(ADD_IMAGE, {refetchQueries: [{query:QUERY_ME}]});
   const [mars, setMars] = useState([]);
   useEffect(async () => {
     const data = await marsTest();

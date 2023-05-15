@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { ADD_IMAGE, ADD_ARTICLE } from "../../utils/mutations";
+import { QUERY_ME } from "../../utils/queries";
 import { Segment, Image, Button, Divider } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import axios from "axios";
@@ -10,7 +11,7 @@ const ApodDisplay = () => {
     const response = await axios.get("/APOD");
     return response.data;
   };
-  const [addImage, { error }] = useMutation(ADD_IMAGE);
+  const [addImage, { error }] = useMutation(ADD_IMAGE, {refetchQueries: [{query:QUERY_ME}]});
   const [pod, setPod] = useState({});
   useEffect(() => {
     const data = apodTest();

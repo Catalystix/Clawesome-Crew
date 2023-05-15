@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
-import { ADD_ARTICLE } from "../../utils/mutations";
+import { ADD_ARTICLE, } from "../../utils/mutations";
+import { QUERY_ME } from "../../utils/queries";
 import { Segment, Image, Card, Button, Divider } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import axios from "axios";
 
 const TechDisplay = () => {
-  const [addArticle, { err }] = useMutation(ADD_ARTICLE);
+  const [addArticle, { err }] = useMutation(ADD_ARTICLE, {refetchQueries: [{query:QUERY_ME}]});
+  
   const [articles, setArticles] = useState([]);
 
   const techTest = async () => {
@@ -81,14 +83,15 @@ const TechDisplay = () => {
                           data-url={article[1]}
                           data-img={article[10]}
                           data-description={article[3]}
-                          onClick={(e) => {
+                          onClick={async (e) => {
                             e.preventDefault();
-                            saveArticle({
+                           await saveArticle({
                               title: e.target.dataset.title,
                               url: e.target.dataset.url,
                               image: e.target.dataset.img,
                               description: e.target.dataset.description,
                             });
+                            
                           }}
                         />
                       </div>
